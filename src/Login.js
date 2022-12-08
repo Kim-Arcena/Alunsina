@@ -1,4 +1,5 @@
- import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
+ import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image} from 'react-native'
+ import Checkbox from 'expo-checkbox';
  import React, {useState} from 'react'
  import { useNavigation } from '@react-navigation/native';
  import { firebase } from "../config";
@@ -7,7 +8,7 @@
     const navigation = useNavigation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const [isChecked, setChecked] = useState(true);
 
     loginUser = async (email, password) => {
         try {
@@ -21,6 +22,7 @@
 
    return (
      <View style={styles.container}>
+        <Image source={require('../assets/openHand.png')} style={styles.icon} />
          <Text style={styles.title}>
             EVAW Movement Chuchu
         </Text>
@@ -41,12 +43,17 @@
                 placeholderTextColor="#bfc0c1"
                 secureTextEntry={true}
             />
+            <View style={styles.addForm}>
+                <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} color={isChecked ? '#a8a9ad' : undefined} />
+                <Text style={{color: '#b0b1b2', marginRight: 10,  fontSize: 14}}>Remember Me?</Text>
+                <Text style={{color: '#b0b1b2', marginLeft: 17,  fontSize: 14}}>Forgot Password?</Text>
+            </View>
         </View>
         <TouchableOpacity style={styles.loginBtn} onPress={() => loginUser(email, password)}>
             <Text style={styles.loginText}>LOGIN</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Registration')}>
-            <Text style={styles.bottomText}>Don't have an account? <span style={{color: 'green'}}>colorful</span></Text>
+            <Text style={styles.bottomText}>Don't have an account? <Text style={styles.bottomTextSpan}>Sign Up</Text></Text>
         </TouchableOpacity>
      </View>
    )
@@ -59,30 +66,32 @@
             fontWeight: 'bold',
             fontSize: 26,
             justifyContent: 'center',
-            paddingTop: 50,
             backgroundColor: '#fff',
         },
         title: {
             fontSize: 20,
+            marginTop: 20,
             fontWeight: 'bold',
         },
         inputTextLabel:{
             fontSize: 16,
-            marginLeft: 19,
+            marginLeft: 17,
             marginTop: 15,
             fontWeight: 'bold',
+            marginBottom: -10,
         },
         inputView: {
-            marginTop: 50,
+            marginTop: 30,
             width: "80%",
         },
         textInput: {
-            height: 55,
+            height: 50,
             width: 292,
             margin: 12,
             borderWidth: 1,
-            padding: 15,
-            fontSize: 18,
+            padding: 10,
+            paddingLeft: 20,
+            fontSize: 16,
             borderRadius: 20,
             borderColor: '#cccdce',
         },
@@ -96,8 +105,29 @@
             marginTop: 40,
         },
         loginText: {
-            fontWeight: 'bold',
+            fontWeight: '600',
+            fontSize: 13,
+        },
+        bottomText: {
+            marginTop: 10,
             fontSize: 15,
+            fontWeight: '600',
+            color: '#cccdce',
+        },
+        bottomTextSpan: {
+            color: '#83b182',
+        },
+        addForm: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginTop: 0,
+            marginHorizontal: 15,
+        },
+        icon: {
+            width: 180, 
+            height: 180, 
+            marginBottom: 20
         },
     })
 
