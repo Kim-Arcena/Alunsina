@@ -1,6 +1,8 @@
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
-import React, { useEffect } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, Image} from 'react-native'
+import React, {useState, useEffect} from 'react'
+import { useNavigation } from '@react-navigation/native';
+import { firebase } from "../config";
+
 
 const Dashboard = () => {
   const [name, setName] = useState('');
@@ -9,9 +11,9 @@ const Dashboard = () => {
     firebase.firestore().collection('users')
     .doc(firebase.auth().currentUser.uid)
     .get()
-    .then((documentSnapshot) => {
-      if (documentSnapshot.exists) {
-        setName(documentSnapshot.data().firstName);
+    .then((snapshot) => {
+      if (snapshot.exists) {
+        setName(snapshot.data());
       }
       else {
         alert('User does not exist')
@@ -21,7 +23,7 @@ const Dashboard = () => {
 
   return ( 
     <SafeAreaView style={styles.container}>
-        <Text style={styles.greetings}>Welcome back {name.firstName}</Text>
+        <Text style={styles.greetings}>Welcome back {name.firstname}</Text>
         <TouchableOpacity 
             onPress={() => firebase.auth().signOut()}
             style={styles.logoutBtn}
@@ -49,8 +51,6 @@ const styles = StyleSheet.create({
     logoutBtnText: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#ff6347',
-        marginTop: 20
     },
     logoutBtn: {
         height: 44,
