@@ -1,10 +1,13 @@
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image} from 'react-native'
+import Checkbox from 'expo-checkbox';
 import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 
 
+
 const Registration = () => {
+    const navigation = useNavigation();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [organizationName, setOrganizationName] = useState('');
@@ -45,7 +48,7 @@ const Registration = () => {
     }
     return (
         <View style={styles.container}>
-            <Text style={styles.title}></Text>
+            <Text style={styles.title}>Create Volunteer Account</Text>
                 <View style={styles.inputView} >
                     <View style={styles.fullName}>
                         <View style={styles.firstNameFrame}>
@@ -128,10 +131,13 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold',
+        marginTop: 50,
+        marginBottom: 20,
     },
     inputTextLabel:{
         fontSize: 16,
         marginLeft: 17,
+        marginTop: 7,
         fontWeight: 'bold',
         marginBottom: -10,
     },
@@ -173,7 +179,7 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 100,
+        marginTop: 85,
     },
     loginText: {
         fontWeight: '600',
