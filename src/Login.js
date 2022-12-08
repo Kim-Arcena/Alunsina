@@ -50,7 +50,7 @@
             </View>
         </View>
         <TouchableOpacity style={styles.loginBtn} onPress={() => loginUser(email, password)}>
-            <Text style={styles.loginText}>LOGIN</Text>
+            <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Registration')}>
             <Text style={styles.bottomText}>Don't have an account? <Text style={styles.bottomTextSpan}>Sign Up</Text></Text>
@@ -58,78 +58,79 @@
      </View>
    )
  }
- 
-    const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            alignItems: 'center',
-            fontWeight: 'bold',
-            fontSize: 26,
-            justifyContent: 'center',
-            backgroundColor: '#fff',
-        },
-        title: {
-            fontSize: 20,
-            marginTop: 20,
-            fontWeight: 'bold',
-        },
-        inputTextLabel:{
-            fontSize: 16,
-            marginLeft: 17,
-            marginTop: 15,
-            fontWeight: 'bold',
-            marginBottom: -10,
-        },
-        inputView: {
-            marginTop: 30,
-            width: "80%",
-        },
-        textInput: {
-            height: 50,
-            width: 292,
-            margin: 12,
-            borderWidth: 1,
-            padding: 10,
-            paddingLeft: 20,
-            fontSize: 16,
-            borderRadius: 20,
-            borderColor: '#cccdce',
-        },
-        loginBtn: {
-            height: 44,
-            width: 290,
-            backgroundColor: '#fed4c2',
-            borderRadius: 25,
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: 40,
-        },
-        loginText: {
-            fontWeight: '600',
-            fontSize: 13,
-        },
-        bottomText: {
-            marginTop: 10,
-            fontSize: 15,
-            fontWeight: '600',
-            color: '#cccdce',
-        },
-        bottomTextSpan: {
-            color: '#83b182',
-        },
-        addForm: {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginTop: 0,
-            marginHorizontal: 15,
-        },
-        icon: {
-            width: 180, 
-            height: 180, 
-            marginBottom: 20
-        },
-    })
+
+export default Login
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        fontWeight: 'bold',
+        fontSize: 26,
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+    },
+    title: {
+        fontSize: 20,
+        marginTop: 20,
+        fontWeight: 'bold',
+    },
+    inputTextLabel:{
+        fontSize: 16,
+        marginLeft: 17,
+        marginTop: 15,
+        fontWeight: 'bold',
+        marginBottom: -10,
+    },
+    inputView: {
+        marginTop: 30,
+        width: "80%",
+    },
+    textInput: {
+        height: 50,
+        width: 292,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        paddingLeft: 20,
+        fontSize: 16,
+        borderRadius: 20,
+        borderColor: '#cccdce',
+    },
+    loginBtn: {
+        height: 44,
+        width: 290,
+        backgroundColor: '#fed4c2',
+        borderRadius: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 40,
+    },
+    loginText: {
+        fontWeight: '600',
+        fontSize: 13,
+    },
+    bottomText: {
+        marginTop: 10,
+        fontSize: 15,
+        fontWeight: '600',
+        color: '#cccdce',
+    },
+    bottomTextSpan: {
+        color: '#83b182',
+    },
+    addForm: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 0,
+        marginHorizontal: 15,
+    },
+    icon: {
+        width: 180, 
+        height: 180, 
+        marginBottom: 20
+    },
+})
 
 
- export default Login
