@@ -22,21 +22,23 @@
    return (
      <View style={styles.container}>
          <Text style={styles.title}>
-            Login
+            EVAW Movement Chuchu
         </Text>
         <View style={styles.inputView} >
+            <Text style={styles.inputTextLabel}>Email</Text>
             <TextInput style={styles.textInput}
-                placeholder="Email"
+                placeholder="lorem@ipsum.com"
                 onChangeText={email => setEmail(email)}
                 autoCapitalize="none"
-                placeholderTextColor="#003f5c"
+                placeholderTextColor="#bfc0c1"
                 autoCorrect={false}
             />
+            <Text style={styles.inputTextLabel}>Password</Text>
             <TextInput style={styles.textInput}
                 placeholder="Password"
                 onChangeText={password => setPassword(password)}
                 autoCapitalize="none"
-                placeholderTextColor="#003f5c"
+                placeholderTextColor="#bfc0c1"
                 secureTextEntry={true}
             />
         </View>
@@ -44,7 +46,7 @@
             <Text style={styles.loginText}>LOGIN</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Registration')}>
-            <Text style={styles.loginText}>Don't have an account? Sign Up</Text>
+            <Text style={styles.bottomText}>Don't have an account? <span style={{color: 'green'}}>colorful</span></Text>
         </TouchableOpacity>
      </View>
    )
@@ -56,23 +58,46 @@
             alignItems: 'center',
             fontWeight: 'bold',
             fontSize: 26,
+            justifyContent: 'center',
+            paddingTop: 50,
+            backgroundColor: '#fff',
+        },
+        title: {
+            fontSize: 20,
+            fontWeight: 'bold',
+        },
+        inputTextLabel:{
+            fontSize: 16,
+            marginLeft: 19,
+            marginTop: 15,
+            fontWeight: 'bold',
+        },
+        inputView: {
+            marginTop: 50,
+            width: "80%",
         },
         textInput: {
-            height: 50,
-            width: 300,
+            height: 55,
+            width: 292,
             margin: 12,
             borderWidth: 1,
-            padding: 10,
-            fontSize: 20,
-            textAlign: 'center',
+            padding: 15,
+            fontSize: 18,
+            borderRadius: 20,
+            borderColor: '#cccdce',
         },
         loginBtn: {
-            height: 50,
-            width: 300,
-            backgroundColor: '#fb5b5a',
+            height: 44,
+            width: 290,
+            backgroundColor: '#fed4c2',
             borderRadius: 25,
             justifyContent: 'center',
             alignItems: 'center',
+            marginTop: 40,
+        },
+        loginText: {
+            fontWeight: 'bold',
+            fontSize: 15,
         },
     })
 
