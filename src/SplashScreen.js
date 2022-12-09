@@ -5,9 +5,9 @@ import { useNavigation } from '@react-navigation/native';
 const SplashScreen = ({Login}) => {
     const navigation = useNavigation();
 
-    // setTimeout(() => {
-    //     navigation.navigate('Login')
-    // }, 3000)
+    setTimeout(() => {
+        navigation.navigate('Login')
+    }, 3000)
   return (
     <View style={styles.container}>
       <Text style={styles.credits}>ⓒ 2022 Alunsina. All Rights Reserved.</Text>

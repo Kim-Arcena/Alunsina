@@ -22,12 +22,10 @@ const App = () => {
 
   useEffect(() => {
     const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
+    return subscriber;  
   }, []);
   
-  if (initializing) return  (
-    null
-  );
+  if (initializing) return null;
 
   if (!user) {
     return (
@@ -38,11 +36,12 @@ const App = () => {
         </Stack.Navigator>
     );
   }
-  return (
+  else {
+    return (
     <Stack.Navigator>
-      <Stack.Screen options={{headerShown: false}} component={Dashboard} />
+      <Stack.Screen options={{headerShown: false}} name="Dashboard" component={Dashboard} />
     </Stack.Navigator>
-  );
+  )};
 }
 
 export default () => {

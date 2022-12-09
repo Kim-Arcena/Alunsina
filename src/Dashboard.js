@@ -34,7 +34,7 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-
+c
 const styles = StyleSheet.create({
     container: {
         flex: 1, 
