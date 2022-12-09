@@ -30,11 +30,15 @@ const Dashboard = () => {
             <Icon name="sign-out" size={25} color="black" />
           </TouchableOpacity>  
         </View>
+        
         <View style={styles.box}>
           <Text style={styles.greetings}>Welcome back, {"\n"} {name.firstName}</Text>
-          <Icon name="user-circle-o" size={25} color="#fff" onPress />
+          <Icon name="user-circle-o" size={25} color="#aa4f15" onPress />
         </View>
-        
+                
+        <View style={styles.donationContainer}>
+          <Image source={require('../assets/16Days-Action-banner.png')} style={styles.imageBanner} />
+        </View>
     </SafeAreaView>
    )
 }
@@ -50,7 +54,7 @@ const styles = StyleSheet.create({
     box: {
       marginTop: 20,
       height: 80,
-      backgroundColor: '#d3d3d3',
+      backgroundColor: '#ffac85',
       width: '80%',
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
       borderRadius: 20,
     },
     greetings: {
-        color: '#fff',
+        color: '#aa4f15',
         fontSize: 20,
         fontWeight: 'bold',
     },
@@ -82,7 +86,17 @@ const styles = StyleSheet.create({
       marginTop: 20,
       justifyContent: 'space-between',
       width: '80%',
-      paddingHorizontal: 20,
+      paddingHorizontal: 10,
       alignItems: 'center',
+    },
+    donationContainer: {
+      flex: 1,  
+      alignItems: 'center',
+      marginVertical: 20,
+      width: '80%',
+    },
+    imageBanner: {
+      height: 200,
+      borderRadius: 20,
     },
 })
