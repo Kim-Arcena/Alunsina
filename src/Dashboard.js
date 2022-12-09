@@ -47,9 +47,10 @@ const Dashboard = () => {
             <Text style={styles.donateText}>Donate</Text>
           </TouchableOpacity>        
         </View>
-        <View style={styles.line}></View>
+        <View style={styles.line}/>
     </SafeAreaView>
    )
+  
 }
 
 export default Dashboard
@@ -125,8 +126,8 @@ const styles = StyleSheet.create({
       marginTop: 8,
     },
     donationDescription: {
-      fontSize: 13,
-      marginTop: 8,
+      fontSize: 12.5,
+      marginVertical: 10,
       textAlign: 'justify',
     },
     moneyRaised: {
@@ -136,9 +137,6 @@ const styles = StyleSheet.create({
     targetAmount: {
       fontWeight: '500',
     },      
-    line: {
-      height: 10,
-    },
     donateBtn: {
       height: 40,
       width: 100,
@@ -152,5 +150,10 @@ const styles = StyleSheet.create({
     donateText: {
       fontWeight: '600',
       fontSize: 13,
-  },
+    },
+    line:{
+      width: '80%',
+      borderWidth: 0.5,
+      borderColor: '#C7A896',
+    },
 })
