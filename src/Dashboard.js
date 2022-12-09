@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, Image, } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView, } from 'react-native'
 import React, {useState, useEffect} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native';
@@ -48,9 +48,18 @@ const Dashboard = () => {
           </TouchableOpacity>        
         </View>
         <View style={styles.line}/>
+        <ScrollView scrollEventThrottle={16}>
+          <Text>EVAW Movement Updates</Text>
+          <View style={styles.articleContainer}>
+            <Text styles={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, provident.</Text>
+            <Text styles={styles.author}>Juan Dela Cruz</Text>
+            <Text styles={styles.time}>4min</Text>
+            <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
+          </View>
+        </ScrollView>
+
     </SafeAreaView>
-   )
-  
+  ) 
 }
 
 export default Dashboard
