@@ -4,9 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Slider from '@react-native-community/slider';
-
-
+import { ProgressBar, MD3Colors } from 'react-native-paper';
 
 const Dashboard = () => {
   const [name, setName] = useState('')
@@ -41,19 +39,15 @@ const Dashboard = () => {
         <View style={styles.donationContainer}>
           <Image source={require('../assets/16Days-Action-banner.png')} style={styles.imageBanner} />
           <Text style={styles.OrganizationName}>Organization Name</Text>
-          <Text style={styles.donationDescription}>Fundraiser Title</Text>
+          <Text style={styles.fundraiserTitle}>Fundraiser Title</Text>
           <Text style={styles.donationDescription}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, sunt beatae cum esse neque modi deleniti dicta asperiores reiciendis, explicabo illum et nulla praesentium repellendus dignissimos nemo distinctio qui dolorum!</Text>
-          <Slider
-          maximumValue={100}
-          minimumValue={0}
-          minimumTrackTintColor="#307ecc"
-          maximumTrackTintColor="#000000"
-          step={1}
-          value={this.state.sliderValue}
-          onValueChange={(sliderValue) => this.setState({ sliderValue })}
-          style={{ width: 300, height: 40 }}
-        />
+          <ProgressBar progress={0.33} color={MD3Colors.error50} />
+          <Text style={styles.moneyRaised}><Text style={styles.targetAmount}>P5000 raised </Text>of P15,000</Text>
+          <TouchableOpacity style={styles.donateBtn}>
+            <Text style={styles.donateText}>Donate</Text>
+          </TouchableOpacity>        
         </View>
+        <View style={styles.line}></View>
     </SafeAreaView>
    )
 }
@@ -68,8 +62,8 @@ const styles = StyleSheet.create({
     },
     box: {
       marginTop: 20,
-      height: 80,
-      // backgroundColor: '#ffac85',
+      height: 70,
+      backgroundColor: '#fbf9f7',
       width: '80%',
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -105,14 +99,58 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     donationContainer: { 
-      flex: 1,  
-      alignItems: 'center',
+      // flex: 1,  
       marginVertical: 20,
       width: '80%',
+      backgroundColor: '#fbf9f7',
+      flexDirection: 'column',
+      borderRadius: 20,
+      padding: 15,
+      height: 450,
     },
     imageBanner: {
-      height: 180,
+      height: 160,
       borderRadius: 20,
       width: '100%',
     },
+    OrganizationName: {
+      fontSize: 15,
+      fontWeight: '500',
+      marginTop: 10,
+    },
+    fundraiserTitle: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: '#d46823',
+      marginTop: 8,
+    },
+    donationDescription: {
+      fontSize: 13,
+      marginTop: 8,
+      textAlign: 'justify',
+    },
+    moneyRaised: {
+      fontSize: 13,
+      marginTop: 8,
+    },
+    targetAmount: {
+      fontWeight: '500',
+    },      
+    line: {
+      height: 10,
+    },
+    donateBtn: {
+      height: 40,
+      width: 100,
+      backgroundColor: '#fed4c2',
+      borderRadius: 25,
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'center',
+      marginTop: 20,
+    },
+    donateText: {
+      fontWeight: '600',
+      fontSize: 13,
+  },
 })
