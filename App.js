@@ -8,6 +8,7 @@ import Registration from "./src/Registration";
 import Login from "./src/Login";
 import Dashboard from "./src/Dashboard";
 import SplashScreen from "./src/SplashScreen";
+import AddFundraiser from "./src/AddFundraiser";
 
 const Stack = createStackNavigator();
 
@@ -42,6 +43,7 @@ const App = () => {
     return (
     <Stack.Navigator>
       <Stack.Screen options={{headerShown: false}} name="Dashboard" component={Dashboard} />
+      <Stack.Screen options={{headerShown: true}} name="AddFundraiser" component={AddFundraiser} />
     </Stack.Navigator>
   )};
 }

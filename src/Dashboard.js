@@ -9,6 +9,7 @@ import { ProgressBar, MD3Colors } from 'react-native-paper';
 
 const Dashboard = () => {
   const [name, setName] = useState('')
+  const navigation = useNavigation();
   const screenWidth = Dimensions.get('window').width;
 
   useEffect(() => {
@@ -87,8 +88,11 @@ const Dashboard = () => {
           </View>
           </ScrollView>
         </ScrollView>
-
+        <TouchableOpacity onPress={() => navigation.navigate('AddFundraiser')}>
+            <Icon name="plus-circle" style={styles.plusCircle} />
+          </TouchableOpacity>  
     </SafeAreaView>
+    
   ) 
 }
 
@@ -240,4 +244,11 @@ const styles = StyleSheet.create({
     time: {
       fontSize: 12,
     },
+    plusCircle: {
+      fontSize: 40,
+      color: '#fed4c2',
+      position: 'absolute',
+      bottom: 20,
+      right: 20,
+    }
 })

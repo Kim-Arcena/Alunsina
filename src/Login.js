@@ -18,7 +18,7 @@
             await firebase.auth().signInWithEmailAndPassword(email, password);
             navigation.navigate('Dashboard');
         } catch (error) {
-            console.log(error.toString())
+            alert(error.message);
         }
     }
 
