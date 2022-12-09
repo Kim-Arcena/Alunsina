@@ -49,7 +49,7 @@
             <View style={styles.addForm}>
                 <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} color={isChecked ? '#a8a9ad' : undefined} />
                 <Text style={{color: '#b0b1b2', marginRight: 10,  fontSize: 14}}>Remember Me?</Text>
-                <Text style={{color: '#b0b1b2', marginLeft: 17,  fontSize: 14}}>Forgot Password?</Text>
+                <Text style={{color: '#b0b1b2', marginLeft: 12,  fontSize: 14}}>Forgot Password?</Text>
             </View>
         </View>
         <TouchableOpacity style={styles.loginBtn} onPress={() => loginUser(email, password)}>
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     },
     inputTextLabel:{
         fontSize: 16,
-        marginLeft: 17,
         marginTop: 15,
         fontWeight: 'bold',
         marginBottom: -10,
@@ -92,10 +91,9 @@ const styles = StyleSheet.create({
     textInput: {
         height: 50,
         width: 292,
-        margin: 12,
+        marginVertical: 12,
         borderWidth: 1,
         padding: 10,
-        paddingLeft: 20,
         fontSize: 16,
         borderRadius: 20,
         borderColor: '#cccdce',
