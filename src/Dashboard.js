@@ -23,7 +23,6 @@ const Dashboard = () => {
       }
     })
   }, [])
-
   return ( 
     <SafeAreaView style={styles.container}>
         <View style={styles.topmostBox}>
@@ -45,23 +44,48 @@ const Dashboard = () => {
             <Text style={styles.fundraiserTitle}>Fundraiser Title</Text>
             <Text style={styles.donationDescription}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, sunt beatae cum esse neque modi deleniti dicta asperiores reiciendis, explicabo illum et nulla praesentium repellendus dignissimos nemo distinctio qui dolorum!</Text>
             <ProgressBar progress={0.33} color={MD3Colors.error50} />
-            <Text style={styles.moneyRaised}><Text style={styles.targetAmount}>P5000 raised </Text>of P15,000</Text>
+            <Text style={styles.moneyRaised}><Text style={styles.targetAmount}>P5,000 raised </Text>of P15,000</Text>
             <TouchableOpacity style={styles.donateBtn}>
               <Text style={styles.donateText}>Donate</Text>
             </TouchableOpacity>        
           </View>
         
           <View style={styles.line}/>
-          </ScrollView>
-          <Text style={styles.articleMainTitle}>EVAW Movement Updates</Text>
-          <View style={styles.articleContainer}>
-            <Text styles={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, provident.</Text>
-            <View style={styles.smallDetails}>
-              <Text styles={styles.author}>Juan Dela Cruz</Text>
-              <Text styles={styles.time}>4min</Text>
+          
+          <View style={styles.articleSection}>
+            <Text style={styles.articleMainTitle}>EVAW Movement Updates</Text>
+            <View style={styles.articleBox}>
+              <View style={styles.articleTexts}>
+                <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
+                  <View style={styles.smallDetails}>
+                    <Text style={styles.author}>Juan Dela Cruz</Text>
+                    <Text style={styles.time}>4min</Text>
+                  </View>
+                </View>
+              <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
             </View>
-            <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
+            <View style={styles.articleBox}>
+              <View style={styles.articleTexts}>
+                <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
+                  <View style={styles.smallDetails}>
+                    <Text style={styles.author}>Juan Dela Cruz</Text>
+                    <Text style={styles.time}>4min</Text>
+                  </View>
+                </View>
+              <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
+            </View>
+            <View style={styles.articleBox}>
+              <View style={styles.articleTexts}>
+                <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
+                  <View style={styles.smallDetails}>
+                    <Text style={styles.author}>Juan Dela Cruz</Text>
+                    <Text style={styles.time}>4min</Text>
+                  </View>
+                </View>
+              <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
+            </View>
           </View>
+          </ScrollView>
         </ScrollView>
 
     </SafeAreaView>
@@ -88,6 +112,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 20,
       alignItems: 'center',
       borderRadius: 20,
+      marginBottom: 10,
     },
     greetings: {
         color: '#aa4f15',
@@ -170,15 +195,49 @@ const styles = StyleSheet.create({
     line:{
       borderWidth: 0.5,
       borderColor: '#C7A896',
+      width: '80%',
     },
     articleBanner: {
-      height: 40,
-      width: 40,
+      height: 70,
+      width: 70,
+      borderRadius: 15,
     },
-    innerContent: {
-      justifyContent: 'center', alignItems: 'center',
-      backgroundColor: '#fff',
-      borderRadius: 25,
-      padding: 20
+    articleSection: {
+      marginTop: 10,
+      width: '80%',
+    },
+    articleMainTitle: {
+      fontSize: 14,
+      fontWeight: 'bold',
+      marginVertical: 5,
+    },
+    headerText: {
+      fontSize: 13,
+      fontWeight: 'bold',
+    },
+    articleTexts: {
+      width: '70%',
+    },
+    articleBox: {
+      flexDirection: 'row',
+      backgroundColor: '#fbf9f7',
+      borderRadius: 20,
+      height: 100,
+      width: '100%',
+      alignSelf: 'center',
+      alignItems: 'center',
+      paddingHorizontal: 10,
+      justifyContent: 'space-between',
+      marginVertical: 5,
+    },
+    smallDetails: {
+      flexDirection: 'row',
+    },
+    author: {
+      fontSize: 12,
+      marginRight: 20,
+    }, 
+    time: {
+      fontSize: 12,
     },
 })
