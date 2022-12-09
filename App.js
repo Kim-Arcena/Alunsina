@@ -7,6 +7,7 @@ import { firebase } from "./config";
 import Registration from "./src/Registration";
 import Login from "./src/Login";
 import Dashboard from "./src/Dashboard";
+import SplashScreen from "./src/SplashScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,11 +25,14 @@ const App = () => {
     return subscriber; // unsubscribe on unmount
   }, []);
   
-  if (initializing) return null;
+  if (initializing) return  (
+    null
+  );
 
   if (!user) {
     return (
         <Stack.Navigator>
+          <Stack.Screen options={{headerShown: false}} name="SplashScreen" component={SplashScreen} />
           <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />
           <Stack.Screen options={{headerShown: false}} name="Registration" component={Registration} />
         </Stack.Navigator>
@@ -36,7 +40,7 @@ const App = () => {
   }
   return (
     <Stack.Navigator>
-      <Stack.Screen options={{headerShown: false}} name="Dashboard" component={Dashboard} />
+      <Stack.Screen options={{headerShown: false}} component={Dashboard} />
     </Stack.Navigator>
   );
 }

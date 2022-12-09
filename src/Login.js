@@ -1,8 +1,11 @@
  import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image} from 'react-native'
  import Checkbox from 'expo-checkbox';
  import React, {useState} from 'react'
+ import { SafeAreaView } from 'react-native-safe-area-context'
  import { useNavigation } from '@react-navigation/native';
  import { firebase } from "../config";
+ import { Platform, StatusBar } from "react-native";
+
  
  const Login = () => {
     const navigation = useNavigation();
@@ -21,7 +24,7 @@
 
 
    return (
-     <View style={styles.container}>
+     <SafeAreaView style={styles.container}>
         <Image source={require('../assets/openHand.png')} style={styles.icon} />
          <Text style={styles.title}>
             EVAW Movement Chuchu
@@ -55,7 +58,7 @@
         <TouchableOpacity onPress={() => navigation.navigate('Registration')}>
             <Text style={styles.bottomText}>Don't have an account? <Text style={styles.bottomTextSpan}>Sign Up</Text></Text>
         </TouchableOpacity>
-     </View>
+     </SafeAreaView>
    )
  }
 
@@ -129,7 +132,8 @@ const styles = StyleSheet.create({
     icon: {
         width: 180, 
         height: 180, 
-        marginBottom: 20
+        marginBottom: 20,
+        overflow: 'hidden',
     },
 })
 

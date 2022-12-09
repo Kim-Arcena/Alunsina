@@ -1,8 +1,8 @@
 Arguments: 
-  /home/anecra/.nvm/versions/node/v18.9.0/bin/node /snap/node/6895/bin/yarn.js add expo-checkbox@~2.2.2
+  /home/anecra/.nvm/versions/node/v18.9.0/bin/node /snap/node/6895/bin/yarn.js add expo-splash-screen@~0.17.5
 
 PATH: 
-  /home/anecra/Alunsina/node_modules/.bin:/home/anecra/Alunsina/node_modules/.bin:/home/anecra/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/anecra/.nvm/versions/node/v18.9.0/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/anecra/.nvm/versions/node/v18.9.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+  /home/anecra/.nvm/versions/node/v18.9.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/anecra/Android/Sdk/emulator:/home/anecra/Android/Sdk/tools:/home/anecra/Android/Sdk/tools/bin:/home/anecra/Android/Sdk/platform-tools
 
 Yarn version: 
   1.22.19
@@ -42,12 +42,14 @@ npm manifest:
       "@react-navigation/native": "^6.1.0",
       "@react-navigation/stack": "^6.3.8",
       "expo": "~47.0.8",
+      "expo-checkbox": "^2.2.2",
       "expo-status-bar": "~1.4.2",
       "firebase": "^9.14.0",
       "react": "18.1.0",
       "react-native": "0.70.5",
       "react-native-gesture-handler": "~2.8.0",
       "react-native-safe-area-context": "4.4.1",
+      "react-native-safe-area-view": "^1.1.1",
       "react-native-screens": "~3.18.0"
     },
     "devDependencies": {
@@ -3633,6 +3635,11 @@ Lockfile:
       "path-browserify" "^1.0.0"
       "url-parse" "^1.5.9"
   
+  "expo-checkbox@^2.2.2":
+    "integrity" "sha512-0DXbeJdVAPfqiy+RBkGXHYU2dLxdpyaWAaV3+N+/xWEC2ilqrqCiSqsPcbFQer1f9qaqjNeDUi51qPuF5AgTIw=="
+    "resolved" "https://registry.npmjs.org/expo-checkbox/-/expo-checkbox-2.2.2.tgz"
+    "version" "2.2.2"
+  
   "expo-constants@~14.0.0", "expo-constants@~14.0.2":
     "integrity" "sha512-wzV3nrzTXTI8yG0tfas3fnqCfKV6YE+1GphEREyVDAShEB6mBInX1b6HgtpHFy2wOtnml+lPVmTCeGtjjLnZhA=="
     "resolved" "https://registry.npmjs.org/expo-constants/-/expo-constants-14.0.2.tgz"
@@ -4222,6 +4229,11 @@ Lockfile:
     "version" "0.0.6"
     dependencies:
       "source-map" "^0.7.3"
+  
+  "hoist-non-react-statics@^2.3.1":
+    "integrity" "sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw=="
+    "resolved" "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz"
+    "version" "2.5.5"
   
   "hoist-non-react-statics@^3.3.0":
     "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
@@ -6158,6 +6170,13 @@ Lockfile:
     "integrity" "sha512-N9XTjiuD73ZpVlejHrUWIFZc+6Z14co1K/p1IFMkImU7+avD69F3y+lhkqA2hN/+vljdZrBSiOwXPkuo43nFQA=="
     "resolved" "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-4.4.1.tgz"
     "version" "4.4.1"
+  
+  "react-native-safe-area-view@^1.1.1":
+    "integrity" "sha512-bbLCtF+tqECyPWlgkWbIwx4vDPb0GEufx/ZGcSS4UljMcrpwluachDXoW9DBxhbMCc6k1V0ccqHWN7ntbRdERQ=="
+    "resolved" "https://registry.npmjs.org/react-native-safe-area-view/-/react-native-safe-area-view-1.1.1.tgz"
+    "version" "1.1.1"
+    dependencies:
+      "hoist-non-react-statics" "^2.3.1"
   
   "react-native-screens@~3.18.0":
     "integrity" "sha512-ANUEuvMUlsYJ1QKukEhzhfrvOUO9BVH9Nzg+6eWxpn3cfD/O83yPBOF8Mx6x5H/2+sMy+VS5x/chWOOo/U7QJw=="

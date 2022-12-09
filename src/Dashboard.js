@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, Image} from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, Image, } from 'react-native'
 import React, {useState, useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
