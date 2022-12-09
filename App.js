@@ -29,14 +29,14 @@ const App = () => {
   if (!user) {
     return (
         <Stack.Navigator>
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Registration" component={Registration} />
+          <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />
+          <Stack.Screen options={{headerShown: false}} name="Registration" component={Registration} />
         </Stack.Navigator>
     );
   }
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen options={{headerShown: false}} name="Dashboard" component={Dashboard} />
     </Stack.Navigator>
   );
 }
