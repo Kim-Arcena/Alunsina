@@ -5,12 +5,11 @@ import { firebase } from "../config";
 
 
 const Dashboard = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState('')
 
   useEffect(() => {
     firebase.firestore().collection('users')
-    .doc(firebase.auth().currentUser.uid)
-    .get()
+    .doc(firebase.auth().currentUser.uid).get()
     .then((snapshot) => {
       if (snapshot.exists) {
         setName(snapshot.data());
@@ -19,11 +18,11 @@ const Dashboard = () => {
         alert('User does not exist')
       }
     })
-  }, []);
+  }, [])
 
   return ( 
     <SafeAreaView style={styles.container}>
-        <Text style={styles.greetings}>Welcome back {name.firstname}</Text>
+        <Text style={styles.greetings}>Welcome back, {name.firstName}</Text>
         <TouchableOpacity 
             onPress={() => firebase.auth().signOut()}
             style={styles.logoutBtn}
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1, 
         justifyContent: 'center', 
-        alignItems: 'center'
+        alignItems: 'center',
     },
     greetings: {
         fontSize: 18,

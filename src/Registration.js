@@ -15,36 +15,34 @@ const Registration = () => {
     const [password, setPassword] = useState('');
 
     registerUser = async (firstName, lastName, organizationName, email, password) => {
-        try {
-            await firebase.auth().createUserWithEmailAndPassword(email, password)
+        await firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => {
+            firebase.auth().currentUser.sendEmailVerification({
+                handleCodeInApp: true,
+                url: 'https://alunsina-c5368.firebaseapp.com',
+            })
             .then(() => {
-                firebase.auth().currentUser.sendEmailVerification({
-                    handleCodeInApp: true,
-                    url: 'https://alunsina-c5368.firebaseapp.com',
-                })
-                .then(() => {
-                    alert('Verification email sent')
-                }).catch((error) => {
-                    alert(error.message);
-                })
-                .then(() => {
-                    firebase.firestore().collection('users')
-                    .doc(firebase.auth().currentUser.uid)
-                    .set({
-                        firstName,
-                        lastName,
-                        organizationName,
-                        email,
-                        password,
-                    })
-                })
-                .catch((error) => {
-                    alert(error.message);
+                alert('Verification email sent')
+            }).catch((error) => {
+                alert(error.message);
+            })
+            .then(() => {
+                firebase.firestore().collection('users')
+                .doc(firebase.auth().currentUser.uid)
+                .set({
+                    firstName: firstName,
+                    lastName: lastName,
+                    organizationName: organizationName,
+                    email: email,
                 })
             })
-        }catch (error) {
-            console.log(error.toString())
-        }
+            .catch((error) => {
+                alert(error.message);
+            })
+        })
+        .catch((error) => {
+            alert(error.message);
+        })
     }
     return (
         <View style={styles.container}>
