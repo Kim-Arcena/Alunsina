@@ -4,6 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Slider from '@react-native-community/slider';
+
 
 
 const Dashboard = () => {
@@ -35,9 +37,22 @@ const Dashboard = () => {
           <Text style={styles.greetings}>Welcome back, {"\n"} {name.firstName}</Text>
           <Icon name="user-circle-o" size={25} color="#aa4f15" onPress />
         </View>
-                
+            
         <View style={styles.donationContainer}>
           <Image source={require('../assets/16Days-Action-banner.png')} style={styles.imageBanner} />
+          <Text style={styles.OrganizationName}>Organization Name</Text>
+          <Text style={styles.donationDescription}>Fundraiser Title</Text>
+          <Text style={styles.donationDescription}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, sunt beatae cum esse neque modi deleniti dicta asperiores reiciendis, explicabo illum et nulla praesentium repellendus dignissimos nemo distinctio qui dolorum!</Text>
+          <Slider
+          maximumValue={100}
+          minimumValue={0}
+          minimumTrackTintColor="#307ecc"
+          maximumTrackTintColor="#000000"
+          step={1}
+          value={this.state.sliderValue}
+          onValueChange={(sliderValue) => this.setState({ sliderValue })}
+          style={{ width: 300, height: 40 }}
+        />
         </View>
     </SafeAreaView>
    )
@@ -54,7 +69,7 @@ const styles = StyleSheet.create({
     box: {
       marginTop: 20,
       height: 80,
-      backgroundColor: '#ffac85',
+      // backgroundColor: '#ffac85',
       width: '80%',
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -89,14 +104,15 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
       alignItems: 'center',
     },
-    donationContainer: {
+    donationContainer: { 
       flex: 1,  
       alignItems: 'center',
       marginVertical: 20,
       width: '80%',
     },
     imageBanner: {
-      height: 200,
+      height: 180,
       borderRadius: 20,
+      width: '100%',
     },
 })

@@ -11,6 +11,8 @@ import SplashScreen from "./src/SplashScreen";
 
 const Stack = createStackNavigator();
 
+
+
 const App = () => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState(null);
