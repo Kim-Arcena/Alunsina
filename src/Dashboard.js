@@ -74,9 +74,9 @@ const Dashboard = () => {
             <Image source={require('../assets/16Days-Action-banner.png')} style={styles.imageBanner} />
             <Text style={styles.OrganizationName}>{fundraiserHandler}</Text>
             <Text style={styles.fundraiserTitle}>{fundraiserTitle}</Text>
-            <Text style={styles.donationDescription}>{fundraiserHandler}</Text>
+            <Text style={styles.donationDescription}>{fundraiserDescription}</Text>
             <ProgressBar progress={0.33} color={MD3Colors.error50} />
-            <Text style={styles.moneyRaised}><Text style={styles.targetAmount}>{fundraiserTargetAmount} raised </Text>of P15,000</Text>
+            <Text style={styles.moneyRaised}><Text style={styles.targetAmount}>P5000 raised </Text>of P{fundraiserTargetAmount}</Text>
             <TouchableOpacity style={styles.donateBtn} onPress={() => navigation.navigate('CheckoutScreen')}>
               <Text style={styles.donateText}>Donate</Text>
             </TouchableOpacity>        

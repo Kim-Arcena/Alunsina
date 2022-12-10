@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import { LinearGradient } from 'expo-linear-gradient';
+import * as ImagePicker from 'expo-image-picker';
 
 
 const AddFundraiser = () => {
@@ -15,6 +16,36 @@ const AddFundraiser = () => {
     const [targetAmount, setTargetAmount] = useState('')
     const timestamp = firebase.firestore.FieldValue.serverTimestamp;
     const [image, setImage] = useState(null);
+    const [uploading, setUploading] = useState(false);
+    
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
+    
+        if (!result.canceled) {
+            setImage(result.assets[0].uri);
+        }
+    }
+
+    const uploadImage = async () => {
+        setUploading(true);
+        const response = await fetch(image.uri);
+        const blob = await response.blob();
+        const filename = image.uri.substring(image.uri.lastIndexOf('/') + 1);
+        var ref = firebase.storage().ref().child(filename).put(blob);
+        
+        try{
+            await ref;
+        }catch(e){
+            console.log(e)
+        }
+        setUploading(false);
+        setImage(null);
+    }
 
     const addFundraiser = async () => {
         if(title && title.length > 0 && description && description.length > 0 && targetAmount && targetAmount.length > 0) {
@@ -35,7 +66,7 @@ const AddFundraiser = () => {
         }
     }
 
-
+ 
     return (
         <SafeAreaView style={styles.container}>
         <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
@@ -43,7 +74,7 @@ const AddFundraiser = () => {
         <Text style={styles.title}>Create Fundraiser</Text>
             <View style={styles.inputView} >
             <Text style={styles.inputTextLabel}>Upload Fundraising Banner</Text>
-            <TouchableOpacity style={styles.uploadImage} >
+            <TouchableOpacity style={styles.uploadImage} onPress={pickImage}>
                 <Text style={styles.loginText}>Upload Image</Text>
             </TouchableOpacity>
             <Text style={styles.inputTextLabel}>Organizaton Name</Text>

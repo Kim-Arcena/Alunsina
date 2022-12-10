@@ -47,7 +47,7 @@ const App = () => {
     <Stack.Navigator>
       <Stack.Screen options={{headerShown: false}} name="Dashboard" component={Dashboard} />
       <Stack.Screen options={{headerShown: false}} name="AddFundraiser" component={AddFundraiser} />
-      <Stack.Screen options={{headerShown: true}} name="CheckoutScreen" component={CheckoutScreen} />
+      <Stack.Screen options={{headerShown: false}} name="CheckoutScreen" component={CheckoutScreen} />
       <Stack.Screen options={{headerShown: false}} name="SpecificArticle" component={SpecificArticle} />
     </Stack.Navigator>
   )};

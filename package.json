@@ -16,6 +16,7 @@
     "@stripe/stripe-react-native": "^0.22.1",
     "expo": "~47.0.8",
     "expo-checkbox": "^2.2.2",
+    "expo-image-picker": "^14.0.2",
     "expo-linear-gradient": "^12.0.1",
     "expo-status-bar": "~1.4.2",
     "expo-stripe-checkout": "^1.0.1",
