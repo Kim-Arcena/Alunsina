@@ -8,7 +8,8 @@ import { ProgressBar, MD3Colors } from 'react-native-paper';
 
 
 const Dashboard = () => {
-  const [name, setName] = useState('')
+  const [name, setName] = useState('');
+  const [fundraisers, setFundraisers] = useState('');
   const navigation = useNavigation();
   const screenWidth = Dimensions.get('window').width;
 
@@ -22,6 +23,21 @@ const Dashboard = () => {
       else {
         alert('User does not exist')
       }
+    })
+    firebase.firestore().collection('fundraisers').onSnapshot(
+      querySnapshot => {
+        const fundraisers = [];
+        querySnapshot.forEach((doc) => {
+          const { organizationHandler, title, description, targetAmount } = doc.data();
+          fundraisers.push({
+            id: doc.id,
+            organizationHandler,
+            title,
+            description,
+            targetAmount
+          });
+        });
+        setFundraisers(fundraisers);
     })
   }, [])
   return ( 
@@ -41,7 +57,7 @@ const Dashboard = () => {
           <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', width: screenWidth }}>
           <View style={styles.donationContainer}>
             <Image source={require('../assets/16Days-Action-banner.png')} style={styles.imageBanner} />
-            <Text style={styles.OrganizationName}>Organization Name</Text>
+            <Text style={styles.OrganizationName}>{fundraisers[0].description}</Text>
             <Text style={styles.fundraiserTitle}>Fundraiser Title</Text>
             <Text style={styles.donationDescription}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, sunt beatae cum esse neque modi deleniti dicta asperiores reiciendis, explicabo illum et nulla praesentium repellendus dignissimos nemo distinctio qui dolorum!</Text>
             <ProgressBar progress={0.33} color={MD3Colors.error50} />

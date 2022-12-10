@@ -12,6 +12,7 @@
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isChecked, setChecked] = useState(true);
+    
 
     loginUser = async (email, password) => {
         try {

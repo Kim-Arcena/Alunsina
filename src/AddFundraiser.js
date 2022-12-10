@@ -8,7 +8,7 @@ import { firebase } from "../config";
 const AddFundraiser = () => {
     const navigation = useNavigation();
     const fundraiserRef = firebase.firestore().collection('fundraisers');
-    const [organizationName, setOrganizationName] = useState('');
+    const [organizationHandler, setOrganizationHandler] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [targetAmount, setTargetAmount] = useState('')
@@ -16,14 +16,14 @@ const AddFundraiser = () => {
     const addFundraiser = async () => {
         if(title && title.length > 0 && description && description.length > 0 && targetAmount && targetAmount.length > 0) {
             await fundraiserRef.add({
-                organizationName: organizationName,
+                organizationHandler: organizationHandler,
                 title: title,
                 description: description,
                 targetAmount: targetAmount,
             })
             .then(() => {
                 alert('Fundraiser added')
-                navigation.navigate('Home')
+                navigation.navigate('Dashboard')
             })
             .catch((error) => {
                 alert(error.message)
@@ -42,7 +42,7 @@ const AddFundraiser = () => {
             <TextInput 
                 style={styles.textInput}
                 placeholder="Organizaton Name"
-                onChangeText={organizationName => setOrganizationName(organizationName)}
+                onChangeText={organizationHandler => setOrganizationHandler(organizationHandler)}
                 autoCapitalize="none"
                 autoCorrect={false}    
             />
@@ -62,8 +62,7 @@ const AddFundraiser = () => {
                 placeholder="Description"
                 onChangeText={description => setDescription(description)}
                 autoCapitalize="none"
-                autoCorrect={false}  
-                secureTextEntry={true}  
+                autoCorrect={false}    
             />
 
             <Text style={styles.inputTextLabel}>Target Amount</Text>
@@ -72,17 +71,16 @@ const AddFundraiser = () => {
                 placeholder="Target Amount"
                 onChangeText={targetAmount => setTargetAmount(targetAmount)}
                 autoCapitalize="none"
-                autoCorrect={false}  
-                secureTextEntry={true}  
+                autoCorrect={false}    
             />
         </View>
         <TouchableOpacity style={styles.addFundraiserBtn} 
             onPress={() => addFundraiser(
-                organizationName,
+                organizationHandler,
                 title,
                 description,
                 targetAmount)}>
-            <Text style={styles.loginText}>Add Fund</Text>
+            <Text style={styles.loginText}>Add Fundraiser</Text>
         </TouchableOpacity>
     </SafeAreaView>
   )
