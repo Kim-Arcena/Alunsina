@@ -243,5 +243,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fef1e5',
         alignContent: 'flex-start',
         textAlignVertical: 'top',
+        alignSelf: 'center',
     }
 })

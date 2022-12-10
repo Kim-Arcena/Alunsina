@@ -51,7 +51,7 @@ const Dashboard = () => {
         setFundraiserTargetAmount(fundraisingDetails[0].targetAmount)
         setFundraiserHandler(fundraisingDetails[0].organizationHandler)
 
-        console.log(fundraisingDetails)
+        // console.log(fundraisingDetails)
     })
   }, [])
   return ( 

@@ -4,13 +4,14 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { ProgressBar, MD3Colors } from 'react-native-paper';
+import { RadioButton } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const CheckoutScreen = () => {
+  const [checked, setChecked] = React.useState('first');
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.donateName}>Donate</Text>
+      <Text style={styles.donateName}>Donateed</Text>
       <Text style={styles.donateForName}>Donated for</Text>
         <View style={styles.articleBox}>
           <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
@@ -49,14 +50,46 @@ const CheckoutScreen = () => {
             <TextInput 
                 style={styles.textInput}
                 placeholder="₱ Enter Amount You Want to Donate"
-                onChangeText={targetAmount => setTargetAmount(targetAmount)}
                 autoCapitalize="none"
                 autoCorrect={false}    
             />
         <Text style={styles.paymentMethodText}>Payment Method</Text>
 
         <View style={styles.paymentMethod}>
+          <View style={styles.paymentMethodRdbtn}>
+            <RadioButton
+              value="first"
+              status={ checked === 'first' ? 'checked' : 'unchecked' }
+              onPress={() => setChecked('first')}
+              uncheckedColor={"#9e7e68"}
+              color={'#FF6D00'}
+            />
+            <Text>Gcash</Text> 
+          </View>
+          <View style={styles.paymentMethodRdbtn}>
+            <RadioButton
+              value="second"
+              status={ checked === 'second' ? 'checked' : 'unchecked' }
+              onPress={() => setChecked('second')}
+              uncheckedColor={"#9e7e68"}
+              color={'#FF6D00'}
+            />
+            <Text>Bank Transfer</Text>
+          </View>
+          <View style={styles.paymentMethodRdbtn}>
+            <RadioButton
+              value="third"
+              status={ checked === 'third' ? 'checked' : 'unchecked' }
+              onPress={() => setChecked('third')}
+              uncheckedColor={"#9e7e68"}
+              color={'#FF6D00'}
+            />
+            <Text>Debit/Credit Card</Text>
+          </View>
         </View>  
+        <TouchableOpacity style={styles.paymentBtn}>
+            <Text style={styles.loginText}>Pay & Confirm</Text>
+        </TouchableOpacity>
     </SafeAreaView>
   )
 }
@@ -120,11 +153,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    backgroundColor: '#fbf9f7',
     paddingHorizontal: 40,
   },
   amountBox: {
-    backgroundColor: '#fff000',
+    backgroundColor: '#fbf9f7',
     borderRadius: 10,
     marginVertical: 10,
     width: 100,
@@ -152,8 +184,8 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     fontSize: 15,
     borderRadius: 20,
-    borderColor: '#fef1e5',
-    backgroundColor: '#fef1e5',
+    borderColor: '#d1a585',
+    backgroundColor: '#f9f3ed',
     alignSelf: 'center',
   },
   paymentMethodText: {
@@ -162,5 +194,26 @@ const styles = StyleSheet.create({
     marginLeft: 50,
     fontWeight: '500',
     marginTop: 20,
+  },
+  paymentMethod: {
+    flexDirection: 'column',
+    width: '80%',
+    height: 100,
+  },
+  paymentMethodRdbtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 5,
+  },
+  paymentBtn: {
+    height: 40,
+    width: 150,
+    backgroundColor: '#FA9F78',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    position: 'absolute',
+    bottom: 60,
   },
 })
