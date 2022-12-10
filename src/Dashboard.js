@@ -6,12 +6,12 @@ import { firebase } from "../config";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { ProgressBar, MD3Colors } from 'react-native-paper';
 
-
 const Dashboard = () => {
   const [name, setName] = useState('');
-  const [fundraisers, setFundraisers] = useState('');
+  const [fundraisingDetails, setFundraisersDetails] = useState([]);
   const navigation = useNavigation();
   const screenWidth = Dimensions.get('window').width;
+  const foundraiserRef = firebase.firestore().collection('fundraisers');
 
   useEffect(() => {
     firebase.firestore().collection('users')
@@ -24,12 +24,12 @@ const Dashboard = () => {
         alert('User does not exist')
       }
     })
-    firebase.firestore().collection('fundraisers').onSnapshot(
+    foundraiserRef.onSnapshot(
       querySnapshot => {
-        const fundraisers = [];
+        const fundraisingDetails = [];
         querySnapshot.forEach((doc) => {
           const { organizationHandler, title, description, targetAmount } = doc.data();
-          fundraisers.push({
+          fundraisingDetails.push({
             id: doc.id,
             organizationHandler,
             title,
@@ -37,7 +37,7 @@ const Dashboard = () => {
             targetAmount
           });
         });
-        setFundraisers(fundraisers);
+        setFundraisersDetails(fundraisingDetails);
     })
   }, [])
   return ( 
@@ -57,7 +57,7 @@ const Dashboard = () => {
           <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', width: screenWidth }}>
           <View style={styles.donationContainer}>
             <Image source={require('../assets/16Days-Action-banner.png')} style={styles.imageBanner} />
-            <Text style={styles.OrganizationName}>{fundraisers[0].description}</Text>
+            <Text style={styles.OrganizationName}>{fundraisingDetails.length}</Text>
             <Text style={styles.fundraiserTitle}>Fundraiser Title</Text>
             <Text style={styles.donationDescription}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, sunt beatae cum esse neque modi deleniti dicta asperiores reiciendis, explicabo illum et nulla praesentium repellendus dignissimos nemo distinctio qui dolorum!</Text>
             <ProgressBar progress={0.33} color={MD3Colors.error50} />
@@ -91,7 +91,7 @@ const Dashboard = () => {
                 </View>
               <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
             </View>
-            <View style={styles.articleBox}>
+            <TouchableOpacity style={styles.articleBox} onPress={() => navigation.navigate('SpecificArticle')}>
               <View style={styles.articleTexts}>
                 <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
                   <View style={styles.smallDetails}>
@@ -100,7 +100,7 @@ const Dashboard = () => {
                   </View>
                 </View>
               <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
-            </View>
+            </TouchableOpacity>
           </View>
           </ScrollView>
         </ScrollView>
@@ -261,10 +261,13 @@ const styles = StyleSheet.create({
       fontSize: 12,
     },
     plusCircle: {
-      fontSize: 40,
+      fontSize: 50,
       color: '#fed4c2',
       position: 'absolute',
-      bottom: 20,
-      right: 20,
+      left:110,
+      bottom: 50,
+      alignSelf: 'flex-end',
+      backgroundColor: '#fff',
+      borderRadius: 50,
     }
 })

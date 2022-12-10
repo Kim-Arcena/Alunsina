@@ -63,8 +63,8 @@ const AddFundraiser = () => {
                 onChangeText={description => setDescription(description)}
                 autoCapitalize="none"
                 autoCorrect={false}    
+                multiline={true}
             />
-
             <Text style={styles.inputTextLabel}>Target Amount</Text>
             <TextInput 
                 style={styles.textInput}
@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     },
     inputTextLabel:{
         fontSize: 16,
-        marginLeft: 17,
         marginTop: 7,
         fontWeight: 'bold',
         marginBottom: -10,
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
     textInput: {
         height: 50,
         width: 292,
-        margin: 12,
+        marginVertical: 12,
         borderWidth: 1,
         padding: 10,
         paddingLeft: 20,
@@ -178,12 +177,14 @@ const styles = StyleSheet.create({
     textInputDescription: {
         height: 100,
         width: 292,
-        margin: 12,
+        marginVertical: 12,
         borderWidth: 1,
-        padding: 10,
-        paddingLeft: 20,
+        paddingHorizontal: 20,
+        paddingTop: 10,
         fontSize: 16,
         borderRadius: 20,
         borderColor: '#cccdce',
+        alignContent: 'flex-start',
+        textAlignVertical: 'top',
     }
 })

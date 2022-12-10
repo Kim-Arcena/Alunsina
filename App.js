@@ -10,6 +10,7 @@ import Dashboard from "./src/Dashboard";
 import SplashScreen from "./src/SplashScreen";
 import AddFundraiser from "./src/AddFundraiser";
 import CheckoutScreen from "./src/CheckoutScreen";
+import SpecificArticle from "./src/SpecificArticle";
 
 const Stack = createStackNavigator();
 
@@ -46,6 +47,7 @@ const App = () => {
       <Stack.Screen options={{headerShown: false}} name="Dashboard" component={Dashboard} />
       <Stack.Screen options={{headerShown: true}} name="AddFundraiser" component={AddFundraiser} />
       <Stack.Screen options={{headerShown: true}} name="CheckoutScreen" component={CheckoutScreen} />
+      <Stack.Screen options={{headerShown: false}} name="SpecificArticle" component={SpecificArticle} />
     </Stack.Navigator>
   )};
 }
