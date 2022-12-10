@@ -50,7 +50,6 @@ const Dashboard = () => {
         setFundraiserDescription(fundraisingDetails[0].description)
         setFundraiserTargetAmount(fundraisingDetails[0].targetAmount)
         setFundraiserHandler(fundraisingDetails[0].organizationHandler)
-
         // console.log(fundraisingDetails)
     })
   }, [])

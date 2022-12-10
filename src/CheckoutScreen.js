@@ -8,6 +8,25 @@ import { RadioButton } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const CheckoutScreen = () => {
+  const [fundraisingDetails, setFundraisersDetails] = useState([]);
+  const [fundraiserTitle, setFundraiserTitle] = useState('');
+  const foundraiserRef = firebase.firestore().collection('fundraisers');
+  
+  useEffect(() => {
+    foundraiserRef.orderBy("createdAt", "desc").onSnapshot(
+      querySnapshot => {
+        const fundraisingDetails = [];
+        querySnapshot.forEach((doc) => {
+          const {title} = doc.data();
+          fundraisingDetails.push({
+            id: doc.id,
+            title,
+          });
+        });
+        setFundraiserTitle(fundraisingDetails[0].title)
+    })
+  }, [])
+
   const [checked, setChecked] = React.useState('first');
   return (
     <SafeAreaView style={styles.container}>
@@ -17,7 +36,7 @@ const CheckoutScreen = () => {
           <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
           <View style={styles.articleTexts}>
               <View style={styles.smallDetails}>
-                <Text style={styles.articleTitle}>United Filipino Veterans Association of Washington</Text>
+                <Text style={styles.articleTitle}>{fundraiserTitle}</Text>
               </View>
             </View>
         </View>
@@ -127,13 +146,11 @@ const styles = StyleSheet.create({
     width: '80%',
     alignSelf: 'center',
     alignItems: 'center',
-    paddingHorizontal: 10,
-    justifyContent: 'space-between',  
+    paddingHorizontal: 15,
     marginVertical: 5,
-
   },
   articleTitle: {
-    width: '70%',
+    width: '100%',
     textAlign: 'left',
     fontWeight: '500',
     fontSize: 15,
@@ -177,7 +194,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 50,
-    width: 320,
+    width: '80%',
     marginVertical: 6,
     borderWidth: 1,
     padding: 10,
