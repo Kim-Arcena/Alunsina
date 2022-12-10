@@ -33,7 +33,7 @@ const SpecificArticle = () => {
           
           <View style={styles.articleSection}>
             <Text style={styles.articleMainTitle}>EVAW Movement Updates</Text>
-            <View style={styles.articleBox}>
+            <TouchableOpacity style={styles.articleBox} onPress={() => navigation.navigate('SpecificArticle')}>
               <View style={styles.articleTexts}>
                 <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
                   <View style={styles.smallDetails}>
@@ -42,8 +42,8 @@ const SpecificArticle = () => {
                   </View>
                 </View>
               <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
-            </View>
-            <View style={styles.articleBox}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.articleBox} onPress={() => navigation.navigate('SpecificArticle')}>
               <View style={styles.articleTexts}>
                 <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
                   <View style={styles.smallDetails}>
@@ -52,7 +52,7 @@ const SpecificArticle = () => {
                   </View>
                 </View>
               <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.articleBox} onPress={() => navigation.navigate('SpecificArticle')}>
               <View style={styles.articleTexts}>
                 <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     details: {
       fontSize: 11,
       textAlign: 'justify',
-      marginVertical: 5,
+      marginVertical: 10,
     },
     articleImage: {
       height: 200,

@@ -57,7 +57,7 @@ const Dashboard = () => {
           <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', width: screenWidth }}>
           <View style={styles.donationContainer}>
             <Image source={require('../assets/16Days-Action-banner.png')} style={styles.imageBanner} />
-            <Text style={styles.OrganizationName}>{fundraisingDetails.length}</Text>
+            <Text style={styles.OrganizationName}>Fundraiser Organizer</Text>
             <Text style={styles.fundraiserTitle}>Fundraiser Title</Text>
             <Text style={styles.donationDescription}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, sunt beatae cum esse neque modi deleniti dicta asperiores reiciendis, explicabo illum et nulla praesentium repellendus dignissimos nemo distinctio qui dolorum!</Text>
             <ProgressBar progress={0.33} color={MD3Colors.error50} />
@@ -71,7 +71,7 @@ const Dashboard = () => {
           
           <View style={styles.articleSection}>
             <Text style={styles.articleMainTitle}>EVAW Movement Updates</Text>
-            <View style={styles.articleBox}>
+            <TouchableOpacity style={styles.articleBox} onPress={() => navigation.navigate('SpecificArticle')}>
               <View style={styles.articleTexts}>
                 <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
                   <View style={styles.smallDetails}>
@@ -80,8 +80,8 @@ const Dashboard = () => {
                   </View>
                 </View>
               <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
-            </View>
-            <View style={styles.articleBox}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.articleBox} onPress={() => navigation.navigate('SpecificArticle')}>
               <View style={styles.articleTexts}>
                 <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
                   <View style={styles.smallDetails}>
@@ -90,7 +90,7 @@ const Dashboard = () => {
                   </View>
                 </View>
               <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.articleBox} onPress={() => navigation.navigate('SpecificArticle')}>
               <View style={styles.articleTexts}>
                 <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#fff',
+      paddingBottom: 10,
     },
     box: {
       marginTop: 20,
