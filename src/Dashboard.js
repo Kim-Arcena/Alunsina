@@ -15,6 +15,10 @@ const Dashboard = () => {
   const navigation = useNavigation();
   const screenWidth = Dimensions.get('window').width;
   const foundraiserRef = firebase.firestore().collection('fundraisers');
+  const [fundraiserTitle, setFundraiserTitle] = useState('');
+  const [fundraiserDescription, setFundraiserDescription] = useState('');
+  const [fundraiserTargetAmount, setFundraiserTargetAmount] = useState('');
+  const [fundraiserHandler, setFundraiserHandler] = useState('');
 
   useEffect(() => {
     firebase.firestore().collection('users')
@@ -27,20 +31,27 @@ const Dashboard = () => {
         alert('User does not exist')
       }
     })
-    foundraiserRef.onSnapshot(
+    foundraiserRef.orderBy("createdAt", "desc").onSnapshot(
       querySnapshot => {
         const fundraisingDetails = [];
         querySnapshot.forEach((doc) => {
-          const { organizationHandler, title, description, targetAmount } = doc.data();
+          const { organizationHandler, title, description, targetAmount, createdAt} = doc.data();
           fundraisingDetails.push({
             id: doc.id,
             organizationHandler,
             title,
             description,
-            targetAmount
+            targetAmount,
+            createdAt
           });
         });
         setFundraisersDetails(fundraisingDetails);
+        setFundraiserTitle(fundraisingDetails[0].title)
+        setFundraiserDescription(fundraisingDetails[0].description)
+        setFundraiserTargetAmount(fundraisingDetails[0].targetAmount)
+        setFundraiserHandler(fundraisingDetails[0].organizationHandler)
+
+        console.log(fundraisingDetails)
     })
   }, [])
   return ( 
@@ -54,18 +65,18 @@ const Dashboard = () => {
         </View>
         
         <View style={styles.box}>
-          <Text style={styles.greetings}>Welcome back, {"\n"} {name.firstName}</Text>
+          <Text style={styles.greetings}>Welcome back,{"\n"}{name.firstName}</Text>
           <Icon name="user-circle-o" size={25} color="#aa4f15" onPress />
         </View>
         <ScrollView scrollEventThrottle={16} style={styles.articleScrollView}>  
           <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center',  width: screenWidth }}>
           <View style={styles.donationContainer}>
             <Image source={require('../assets/16Days-Action-banner.png')} style={styles.imageBanner} />
-            <Text style={styles.OrganizationName}>Fundraiser Organizer</Text>
-            <Text style={styles.fundraiserTitle}>Fundraiser Title</Text>
-            <Text style={styles.donationDescription}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, sunt beatae cum esse neque modi deleniti dicta asperiores reiciendis, explicabo illum et nulla praesentium repellendus dignissimos nemo distinctio qui dolorum!</Text>
+            <Text style={styles.OrganizationName}>{fundraiserHandler}</Text>
+            <Text style={styles.fundraiserTitle}>{fundraiserTitle}</Text>
+            <Text style={styles.donationDescription}>{fundraiserHandler}</Text>
             <ProgressBar progress={0.33} color={MD3Colors.error50} />
-            <Text style={styles.moneyRaised}><Text style={styles.targetAmount}>P5,000 raised </Text>of P15,000</Text>
+            <Text style={styles.moneyRaised}><Text style={styles.targetAmount}>{fundraiserTargetAmount} raised </Text>of P15,000</Text>
             <TouchableOpacity style={styles.donateBtn} onPress={() => navigation.navigate('CheckoutScreen')}>
               <Text style={styles.donateText}>Donate</Text>
             </TouchableOpacity>        
@@ -174,14 +185,14 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     donationContainer: { 
-      // flex: 1,  
+      flex: 1,  
       marginVertical: 20,
       width: '80%',
       backgroundColor: '#fbf9f7',
       flexDirection: 'column',
       borderRadius: 20,
       padding: 15,
-      height: 450,
+      // height: 450,
     },
     imageBanner: {
       height: 160,

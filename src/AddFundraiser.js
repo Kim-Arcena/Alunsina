@@ -13,6 +13,8 @@ const AddFundraiser = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [targetAmount, setTargetAmount] = useState('')
+    const timestamp = firebase.firestore.FieldValue.serverTimestamp;
+    const [image, setImage] = useState(null);
 
     const addFundraiser = async () => {
         if(title && title.length > 0 && description && description.length > 0 && targetAmount && targetAmount.length > 0) {
@@ -21,6 +23,7 @@ const AddFundraiser = () => {
                 title: title,
                 description: description,
                 targetAmount: targetAmount,
+                createdAt: timestamp()
             })
             .then(() => {
                 alert('Fundraiser added')
@@ -101,6 +104,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         justifyContent: 'center',
         backgroundColor: '#fff',
+        paddingTop: 40,
     },
     title: {
         fontSize: 20,
@@ -126,7 +130,7 @@ const styles = StyleSheet.create({
     textInput: {
         height: 50,
         width: 320,
-        marginVertical: 12,
+        marginVertical: 6,
         borderWidth: 1,
         padding: 10,
         paddingLeft: 20,
@@ -198,7 +202,7 @@ const styles = StyleSheet.create({
     textInputDescription: {
         height: 100,
         width: 320,
-        marginVertical: 12,
+        marginVertical: 6,
         borderWidth: 1,
         paddingHorizontal: 20,
         paddingTop: 10,
