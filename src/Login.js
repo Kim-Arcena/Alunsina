@@ -26,10 +26,8 @@
 
    return (
      <SafeAreaView style={styles.container}>
-        <Image source={require('../assets/openHand.png')} style={styles.icon} />
-         <Text style={styles.title}>
-            EVAW Movement Chuchu
-        </Text>
+        <Image source={require('../assets/splash1.png')} style={styles.icon} />
+         <Text style={styles.title}>Providing solutions in stopping VAWC</Text>
         <View style={styles.inputView} >
             <Text style={styles.inputTextLabel}>Email</Text>
             <TextInput style={styles.textInput}
@@ -75,7 +73,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     title: {
-        fontSize: 20,
+        fontSize: 15,
         marginTop: 20,
         fontWeight: 'bold',
     },
@@ -84,6 +82,7 @@ const styles = StyleSheet.create({
         marginTop: 15,
         fontWeight: 'bold',
         marginBottom: -10,
+        marginLeft: 17,
     },
     inputView: {
         marginTop: 30,
@@ -91,13 +90,14 @@ const styles = StyleSheet.create({
     },
     textInput: {
         height: 50,
-        width: 292,
+        width: 300,
         marginVertical: 12,
         borderWidth: 1,
         padding: 10,
         fontSize: 16,
         borderRadius: 20,
         borderColor: '#cccdce',
+        alignSelf: 'center',
     },
     loginBtn: {
         height: 44,
@@ -129,8 +129,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
     },
     icon: {
-        width: 180, 
-        height: 180, 
+        width: 150, 
+        height: 150, 
         marginBottom: 20,
         overflow: 'hidden',
     },

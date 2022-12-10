@@ -43,7 +43,7 @@ const Dashboard = () => {
   return ( 
     <SafeAreaView style={styles.container}>
         <View style={styles.topmostBox}>
-          <Image source={require('../assets/tucked.png')} style={{width: 40, height: 40}} />
+          <Image source={require('../assets/splash1.png')} style={{width: 40, height: 40}} />
           <TouchableOpacity  onPress={() => firebase.auth().signOut()}>
             <Icon name="sign-out" size={25} color="black" />
           </TouchableOpacity>  
