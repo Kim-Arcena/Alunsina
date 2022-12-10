@@ -1,8 +1,4 @@
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image} from 'react-native'
-import Checkbox from 'expo-checkbox';
-import React, {useState} from 'react'
-import { useNavigation } from '@react-navigation/native';
-import { firebase } from "../config";
+ 
 
 
 

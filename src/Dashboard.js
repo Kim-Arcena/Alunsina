@@ -46,7 +46,7 @@ const Dashboard = () => {
             <Text style={styles.donationDescription}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, sunt beatae cum esse neque modi deleniti dicta asperiores reiciendis, explicabo illum et nulla praesentium repellendus dignissimos nemo distinctio qui dolorum!</Text>
             <ProgressBar progress={0.33} color={MD3Colors.error50} />
             <Text style={styles.moneyRaised}><Text style={styles.targetAmount}>P5,000 raised </Text>of P15,000</Text>
-            <TouchableOpacity style={styles.donateBtn}>
+            <TouchableOpacity style={styles.donateBtn} onPress={() => navigation.navigate('CheckoutScreen')}>
               <Text style={styles.donateText}>Donate</Text>
             </TouchableOpacity>        
           </View>

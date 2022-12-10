@@ -3665,6 +3665,11 @@
   "resolved" "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.4.2.tgz"
   "version" "1.4.2"
 
+"expo-stripe-checkout@^1.0.1":
+  "integrity" "sha512-mReYOh+VNNzHBlQaGj6kYb78LfdB4+6OMcWsSAGNkyMX+7E0SzRRV65TOjWn3m7f8S5y9jBNitx2wtndlso8dg=="
+  "resolved" "https://registry.npmjs.org/expo-stripe-checkout/-/expo-stripe-checkout-1.0.1.tgz"
+  "version" "1.0.1"
+
 "expo@~47.0.8":
   "integrity" "sha512-PGNCIvrnYwHH4TDFsVocq/xhWZ5DW8N3bLkZJPZZgX6VgjtVLNsbZ+0lm1inLCZHP+6xSpSKRccjGHO/QQoMBQ=="
   "resolved" "https://registry.npmjs.org/expo/-/expo-47.0.8.tgz"
