@@ -1,6 +1,41 @@
-This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="https://user-images.githubusercontent.com/70198061/206861852-65a70ded-7924-4224-8216-513219f890c1.png" alt="Logo" width="80" height="80">
+ 
+  <h3 align="center">Alunsina</h3>
 
-Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
+  <p align="center">
+    <h4 align="center">Fast and Safe EVAW-Dedicated Fundraising App</h4>
+    <br />
+    <a href="https://youtu.be/f29NcSyUpY0">View Demo</a>
+    ·
+    <a href="https://github.com/Kim-Arcena/Alunsina/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Kim-Arcena/Alunsina/issues">Request Feature</a>
+  </p>
+
+</div>
+
+<div>
+  <!-- APP SCREENSHOT -->
+  <h2>Gallery</h2>
+  <h3>App Screenshots</h3>
+  <img src="https://user-images.githubusercontent.com/70198061/206861967-19c9ec80-8f0d-42ed-85e6-dd80aca23170.jpg" alt="Splash Screen" width="24%">
+  <img src="https://user-images.githubusercontent.com/70198061/206861970-3a06a074-26f1-4dea-9cd5-2bc10610e497.jpg" alt="Login" width="24%">
+  <img src="https://user-images.githubusercontent.com/70198061/206862030-913ebe2c-fbbe-400e-9321-46dbff95c8fe.jpg" alt="Register" width="24%">
+  <img src="https://user-images.githubusercontent.com/70198061/206862061-7d4d1e81-01a0-4663-a849-f456452c34a7.jpg" alt="Main Activity" width="24%">
+  <br>
+  <img src="https://user-images.githubusercontent.com/70198061/206862168-5d45439f-4092-4e14-a733-c0703087bd67.jpg" alt="Main Activity2" width="24%">
+  <img src="https://user-images.githubusercontent.com/70198061/206862198-073fcf7b-a94a-4a49-a7a4-caebc1fa8880.jpg" alt="Add Funding" width="24%">
+  <img src="https://user-images.githubusercontent.com/70198061/206862228-8139d1fd-2d14-4ec2-a1e8-e58f5dd4e402.jpg" alt="Register" width="24%">
+  
+</div>
+
+
+<!-- ![splash3](https://user-images.githubusercontent.com/70198061/206861852-65a70ded-7924-4224-8216-513219f890c1.png) -->
 
 ## Table of Contents
 
