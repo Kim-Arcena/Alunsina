@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image} from 'react-native'
 import Checkbox from 'expo-checkbox';
+import { SafeAreaView } from 'react-native-safe-area-context'
 import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
@@ -11,7 +12,7 @@ const AddFundraiser = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [targetAmount, setTargetAmount] = useState('')
-    
+
     const addFundraiser = async () => {
         if(title && title.length > 0 && description && description.length > 0 && targetAmount && targetAmount.length > 0) {
             await fundraiserRef.add({
@@ -32,7 +33,7 @@ const AddFundraiser = () => {
 
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Create Fundraiser</Text>
             <View style={styles.inputView} >
     
@@ -57,7 +58,7 @@ const AddFundraiser = () => {
 
             <Text style={styles.inputTextLabel}>Description</Text>
             <TextInput 
-                style={styles.textInput}
+                style={styles.textInputDescription}
                 placeholder="Description"
                 onChangeText={description => setDescription(description)}
                 autoCapitalize="none"
@@ -75,15 +76,15 @@ const AddFundraiser = () => {
                 secureTextEntry={true}  
             />
         </View>
-        <TouchableOpacity style={styles.registrationBtn} 
+        <TouchableOpacity style={styles.addFundraiserBtn} 
             onPress={() => addFundraiser(
                 organizationName,
                 title,
                 description,
                 targetAmount)}>
-            <Text style={styles.loginText}>Add Fundraiser</Text>
+            <Text style={styles.loginText}>Add Fund</Text>
         </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -95,13 +96,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         fontWeight: 'bold',
         fontSize: 26,
+        justifyContent: 'center',
         backgroundColor: '#fff',
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginTop: 50,
         marginBottom: 20,
+        
     },
     inputTextLabel:{
         fontSize: 16,
@@ -141,14 +143,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    registrationBtn: {
+    addFundraiserBtn: {
         height: 44,
         width: 290,
         backgroundColor: '#fed4c2',
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 85,
+        marginTop: 50,
     },
     loginText: {
         fontWeight: '600',
@@ -175,4 +177,15 @@ const styles = StyleSheet.create({
         height: 180, 
         marginBottom: 20
     },
+    textInputDescription: {
+        height: 100,
+        width: 292,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        paddingLeft: 20,
+        fontSize: 16,
+        borderRadius: 20,
+        borderColor: '#cccdce',
+    }
 })
