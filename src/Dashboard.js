@@ -5,6 +5,9 @@ import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { ProgressBar, MD3Colors } from 'react-native-paper';
+import { LinearGradient } from 'expo-linear-gradient';
+
+
 
 const Dashboard = () => {
   const [name, setName] = useState('');
@@ -42,7 +45,8 @@ const Dashboard = () => {
   }, [])
   return ( 
     <SafeAreaView style={styles.container}>
-        <View style={styles.topmostBox}>
+        <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
+        <View style={styles.topmostBox}>    
           <Image source={require('../assets/splash3.png')} style={{width: 40, height: 40}} />
           <TouchableOpacity  onPress={() => firebase.auth().signOut()}>
             <Icon name="sign-out" size={25} color="black" />
@@ -54,7 +58,7 @@ const Dashboard = () => {
           <Icon name="user-circle-o" size={25} color="#aa4f15" onPress />
         </View>
         <ScrollView scrollEventThrottle={16} style={styles.articleScrollView}>  
-          <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', width: screenWidth }}>
+          <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center',  width: screenWidth }}>
           <View style={styles.donationContainer}>
             <Image source={require('../assets/16Days-Action-banner.png')} style={styles.imageBanner} />
             <Text style={styles.OrganizationName}>Fundraiser Organizer</Text>
@@ -107,6 +111,7 @@ const Dashboard = () => {
         <TouchableOpacity onPress={() => navigation.navigate('AddFundraiser')}>
             <Icon name="plus-circle" style={styles.plusCircle} />
           </TouchableOpacity>  
+         </LinearGradient> 
     </SafeAreaView>
     
   ) 
@@ -119,13 +124,11 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#fff',
-      paddingBottom: 10,
     },
     box: {
       marginTop: 20,
       height: 70,
-      backgroundColor: '#fbf9f7',
+      backgroundColor: '#F2CBBB',
       width: '80%',
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -140,6 +143,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
+    gradient: {
+      width: '100%',
+      flex: 1,
+      alignItems: 'center',
+      fontWeight: 'bold',
+      fontSize: 26,
+      justifyContent: 'center',
+  },
     logoutBtnText: {
         fontSize: 16,
         fontWeight: 'bold',
@@ -147,7 +158,8 @@ const styles = StyleSheet.create({
     logoutBtn: {
         height: 44,
         width: 290,
-        backgroundColor: '#fed4c2',
+        backgroundColor: '#ff8652',
+        color: '#fff',
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
@@ -202,7 +214,7 @@ const styles = StyleSheet.create({
     donateBtn: {
       height: 40,
       width: 100,
-      backgroundColor: '#fed4c2',
+      backgroundColor: '#FA9F78',
       borderRadius: 25,
       justifyContent: 'center',
       alignItems: 'center',
@@ -212,6 +224,7 @@ const styles = StyleSheet.create({
     donateText: {
       fontWeight: '600',
       fontSize: 13,
+      color: '#000',
     },
     line:{
       borderWidth: 0.5,
@@ -263,7 +276,7 @@ const styles = StyleSheet.create({
     },
     plusCircle: {
       fontSize: 50,
-      color: '#fed4c2',
+      color: '#FA9F78',
       position: 'absolute',
       left:110,
       bottom: 50,

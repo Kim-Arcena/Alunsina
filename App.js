@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React, {useState, useEffect} from "react";
 import { View, Text, Button, StyleSheet, Image, TouchableOpacity, TextInput, Alert} from "react-native";
 import { firebase } from "./config";
+import { LinearGradient } from 'expo-linear-gradient';
 
 import Registration from "./src/Registration";
 import Login from "./src/Login";

@@ -3,6 +3,8 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 const AddFundraiser = () => {
     const navigation = useNavigation();
@@ -33,6 +35,8 @@ const AddFundraiser = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+        <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
+
         <Text style={styles.title}>Create Fundraiser</Text>
             <View style={styles.inputView} >
             <Text style={styles.inputTextLabel}>Upload Fundraising Banner</Text>
@@ -82,6 +86,7 @@ const AddFundraiser = () => {
                 targetAmount)}>
             <Text style={styles.loginText}>Add Fundraiser</Text>
         </TouchableOpacity>
+        </LinearGradient>
     </SafeAreaView>
   )
 }
@@ -110,6 +115,14 @@ const styles = StyleSheet.create({
         marginTop: 30,
         width: "80%",
     },
+    gradient: {
+        width: '100%',
+        flex: 1,
+        alignItems: 'center',
+        fontWeight: 'bold',
+        fontSize: 26,
+        justifyContent: 'center',
+    },
     textInput: {
         height: 50,
         width: 320,
@@ -119,7 +132,8 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         fontSize: 16,
         borderRadius: 20,
-        borderColor: '#cccdce',
+        borderColor: '#fef1e5',
+        backgroundColor: '#fef1e5',
         alignSelf: 'center',
     },
     halfName: {
@@ -190,7 +204,8 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         fontSize: 16,
         borderRadius: 20,
-        borderColor: '#cccdce',
+        borderColor: '#fef1e5',
+        backgroundColor: '#fef1e5',
         alignContent: 'flex-start',
         textAlignVertical: 'top',
     }

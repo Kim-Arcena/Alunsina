@@ -5,14 +5,13 @@
  import { useNavigation } from '@react-navigation/native';
  import { firebase } from "../config";
  import { Platform, StatusBar } from "react-native";
-
+ import { LinearGradient } from 'expo-linear-gradient';
  
  const Login = () => {
     const navigation = useNavigation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isChecked, setChecked] = useState(true);
-    
 
     loginUser = async (email, password) => {
         try {
@@ -26,6 +25,7 @@
 
    return (
      <SafeAreaView style={styles.container}>
+        <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
         <Image source={require('../assets/splash3.png')} style={styles.icon} />
          <Text style={styles.title}>Providing Solutions in Stopping VAWC</Text>
         <View style={styles.inputView} >
@@ -47,8 +47,8 @@
             />
             <View style={styles.addForm}>
                 <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} color={isChecked ? '#a8a9ad' : undefined} />
-                <Text style={{color: '#b0b1b2', marginRight: 10,  fontSize: 14}}>Remember Me?</Text>
-                <Text style={{color: '#b0b1b2', marginLeft: 12,  fontSize: 14}}>Forgot Password?</Text>
+                <Text style={{color: '#1D1D1D', marginRight: 10,  fontSize: 14}}>Remember Me?</Text>
+                <Text style={{color: '#1D1D1D', marginLeft: 12,  fontSize: 14}}>Forgot Password?</Text>
             </View>
         </View>
         <TouchableOpacity style={styles.loginBtn} onPress={() => loginUser(email, password)}>
@@ -57,7 +57,8 @@
         <TouchableOpacity onPress={() => navigation.navigate('Registration')}>
             <Text style={styles.bottomText}>Don't have an account? <Text style={styles.bottomTextSpan}>Sign Up</Text></Text>
         </TouchableOpacity>
-     </SafeAreaView>
+        </LinearGradient>
+    </SafeAreaView>
    )
  }
 
@@ -71,6 +72,14 @@ const styles = StyleSheet.create({
         fontSize: 26,
         justifyContent: 'center',
         backgroundColor: '#fff',
+    },
+    gradient: {
+        width: '100%',
+        flex: 1,
+        alignItems: 'center',
+        fontWeight: 'bold',
+        fontSize: 26,
+        justifyContent: 'center',
     },
     title: {
         fontSize: 15,
@@ -96,8 +105,9 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 16,
         borderRadius: 20,
-        borderColor: '#cccdce',
+        borderColor: '#fef1e5',
         alignSelf: 'center',
+        backgroundColor: '#fef1e5',
     },
     loginBtn: {
         height: 44,
@@ -116,7 +126,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         fontSize: 15,
         fontWeight: '600',
-        color: '#cccdce',
+        color: '#1D1D1D',
     },
     bottomTextSpan: {
         color: '#D46823',

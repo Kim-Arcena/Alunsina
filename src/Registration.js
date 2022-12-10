@@ -3,8 +3,7 @@ import Checkbox from 'expo-checkbox';
 import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
-
-
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Registration = () => {
     const navigation = useNavigation();
@@ -46,6 +45,7 @@ const Registration = () => {
     }
     return (
         <View style={styles.container}>
+            <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
             <Text style={styles.title}>Create Volunteer Account</Text>
                 <View style={styles.inputView} >
                     <View style={styles.fullName}>
@@ -111,6 +111,8 @@ const Registration = () => {
             <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                 <Text style={styles.bottomText}>Have an account? <Text style={styles.bottomTextSpan}>Login</Text></Text>
             </TouchableOpacity>
+        </LinearGradient>
+        
         </View>
     )
     
@@ -132,6 +134,14 @@ const styles = StyleSheet.create({
         marginTop: 50,
         marginBottom: 20,
     },
+    gradient: {
+        width: '100%',
+        flex: 1,
+        alignItems: 'center',
+        fontWeight: 'bold',
+        fontSize: 26,
+        justifyContent: 'center',
+    },
     inputTextLabel:{
         fontSize: 16,
         marginLeft: 17,
@@ -152,7 +162,8 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         fontSize: 16,
         borderRadius: 20,
-        borderColor: '#cccdce',
+        borderColor: '#fef1e5',
+        backgroundColor: '#fef1e5',
     },
     halfName: {
         height: 50,
@@ -164,7 +175,8 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         fontSize: 16,
         borderRadius: 20,
-        borderColor: '#cccdce',
+        borderColor: '#fef1e5',
+        backgroundColor: '#fef1e5',
     },
     fullName: {
         flexDirection: 'row',
@@ -187,7 +199,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         fontSize: 15,
         fontWeight: '600',
-        color: '#cccdce',
+        color: '#1D1D1D',
     },
     bottomTextSpan: {
         color: '#D46823',

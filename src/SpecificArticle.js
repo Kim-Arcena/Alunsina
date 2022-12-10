@@ -5,13 +5,16 @@ import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { ProgressBar, MD3Colors } from 'react-native-paper';
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 const SpecificArticle = () => {
   const screenWidth = Dimensions.get('window').width;
   return (
     <SafeAreaView style={styles.container}>
+      <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
       <ScrollView scrollEventThrottle={16} style={styles.articleScrollView}>
-      <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', width: screenWidth }}>
+      <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: screenWidth }}>
       <View style={styles.articleHeader}>
         <Text style={styles.articleTitle}>Article Title</Text>
         <View style={styles.articleDetails}>
@@ -67,6 +70,7 @@ const SpecificArticle = () => {
       </View>
       </ScrollView>
       </ScrollView>
+      </LinearGradient>
     </SafeAreaView>
   )
 }
@@ -84,6 +88,14 @@ const styles = StyleSheet.create({
     articleTitle: {
       fontSize: 20,
       fontWeight: 'bold',
+    },
+    gradient: {
+      width: '100%',
+      flex: 1,
+      alignItems: 'center',
+      fontWeight: 'bold',
+      fontSize: 26,
+      justifyContent: 'center',
     },
     articleAuthor: {
       fontSize: 14,
