@@ -35,8 +35,10 @@ const AddFundraiser = () => {
         <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Create Fundraiser</Text>
             <View style={styles.inputView} >
-    
-            
+            <Text style={styles.inputTextLabel}>Upload Fundraising Banner</Text>
+            <TouchableOpacity style={styles.uploadImage} >
+                <Text style={styles.loginText}>Upload Image</Text>
+            </TouchableOpacity>
             <Text style={styles.inputTextLabel}>Organizaton Name</Text>
             <TextInput 
                 style={styles.textInput}
@@ -45,7 +47,6 @@ const AddFundraiser = () => {
                 autoCapitalize="none"
                 autoCorrect={false}    
             />
-
             <Text style={styles.inputTextLabel}>Title</Text>
             <TextInput 
                 style={styles.textInput}
@@ -99,14 +100,11 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 20,
-        
     },
     inputTextLabel:{
         fontSize: 16,
         marginTop: 7,
         fontWeight: 'bold',
-        marginBottom: -10,
     },
     inputView: {
         marginTop: 30,
@@ -114,7 +112,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         height: 50,
-        width: 292,
+        width: 320,
         marginVertical: 12,
         borderWidth: 1,
         padding: 10,
@@ -122,6 +120,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         borderRadius: 20,
         borderColor: '#cccdce',
+        alignSelf: 'center',
     },
     halfName: {
         height: 50,
@@ -146,14 +145,23 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 50,
+        marginTop: 20,
     },
     loginText: {
         fontWeight: '600',
         fontSize: 13,
     },
-    bottomText: {
+    uploadImage: {
         marginTop: 10,
+        height: 44,
+        width: 120,
+        backgroundColor: '#e5e5e5',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    bottomText: {
+        marginTop: 12,
         fontSize: 15,
         fontWeight: '600',
         color: '#cccdce',
@@ -175,7 +183,7 @@ const styles = StyleSheet.create({
     },
     textInputDescription: {
         height: 100,
-        width: 292,
+        width: 320,
         marginVertical: 12,
         borderWidth: 1,
         paddingHorizontal: 20,

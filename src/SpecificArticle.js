@@ -32,7 +32,7 @@ const SpecificArticle = () => {
         <View style={styles.line}/>
           
           <View style={styles.articleSection}>
-            <Text style={styles.articleMainTitle}>EVAW Movement Updates</Text>
+            <Text style={styles.articleMainTitle}>More EVAW Movement Updates</Text>
             <TouchableOpacity style={styles.articleBox} onPress={() => navigation.navigate('SpecificArticle')}>
               <View style={styles.articleTexts}>
                 <Text style={styles.headerText}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     articleHeader: {
       width: '80%',
       flexWrap: 'wrap',
+      marginVertical: 10,
     },
     articleBanner: {
       height: 70,
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     },
     articleTime: {
       fontSize: 12,
-      color: '#C7A896',
+      color: '#A9A9A9',
     },
     articleContent: {
       width: '80%',
