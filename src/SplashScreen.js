@@ -10,7 +10,7 @@ const SplashScreen = ({Login}) => {
     }, 3000)
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/splash1.png')} style={styles.splashImage} />
+      <Image source={require('../assets/splash3.png')} style={styles.splashImage} />
       <Text style={styles.title}>Fast and Safe EVAW-Dedicated Fundraising App</Text>
       <Text style={styles.credits}>ⓒ 2022 Alunsina. All Rights Reserved.</Text>
     </View>

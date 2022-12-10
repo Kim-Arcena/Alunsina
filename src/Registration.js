@@ -125,7 +125,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 26,
         backgroundColor: '#fff',
-        justifyContent: 'center',
     },
     title: {
         fontSize: 20,
@@ -174,7 +173,7 @@ const styles = StyleSheet.create({
     registrationBtn: {
         height: 44,
         width: 290,
-        backgroundColor: '#fed4c2',
+        backgroundColor: '#f27153',
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
@@ -191,7 +190,7 @@ const styles = StyleSheet.create({
         color: '#cccdce',
     },
     bottomTextSpan: {
-        color: '#83b182',
+        color: '#D46823',
     },
     addForm: {
         flexDirection: 'row',

@@ -26,8 +26,8 @@
 
    return (
      <SafeAreaView style={styles.container}>
-        <Image source={require('../assets/splash1.png')} style={styles.icon} />
-         <Text style={styles.title}>Providing solutions in stopping VAWC</Text>
+        <Image source={require('../assets/splash3.png')} style={styles.icon} />
+         <Text style={styles.title}>Providing Solutions in Stopping VAWC</Text>
         <View style={styles.inputView} >
             <Text style={styles.inputTextLabel}>Email</Text>
             <TextInput style={styles.textInput}
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     loginBtn: {
         height: 44,
         width: 290,
-        backgroundColor: '#fed4c2',
+        backgroundColor: '#F27153',
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
         color: '#cccdce',
     },
     bottomTextSpan: {
-        color: '#83b182',
+        color: '#D46823',
     },
     addForm: {
         flexDirection: 'row',
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
     },
     icon: {
-        width: 150, 
+        width: 153, 
         height: 150, 
         marginBottom: 20,
         overflow: 'hidden',

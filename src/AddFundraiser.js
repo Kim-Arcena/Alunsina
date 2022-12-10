@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     addFundraiserBtn: {
         height: 44,
         width: 290,
-        backgroundColor: '#fed4c2',
+        backgroundColor: '#F27153',
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
