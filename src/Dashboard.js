@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { ProgressBar, MD3Colors } from 'react-native-paper';
-import { LinearGradient } from 'expo-linear-gradient';
 
 
 
@@ -55,7 +54,6 @@ const Dashboard = () => {
   }, [])
   return ( 
     <SafeAreaView style={styles.container}>
-        <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
         <View style={styles.topmostBox}>    
           <Image source={require('../assets/splash3.png')} style={{width: 40, height: 40}} />
           <TouchableOpacity  onPress={() => firebase.auth().signOut()}>
@@ -121,7 +119,6 @@ const Dashboard = () => {
         <TouchableOpacity onPress={() => navigation.navigate('AddFundraiser')}>
             <Icon name="plus-circle" style={styles.plusCircle} />
           </TouchableOpacity>  
-         </LinearGradient> 
     </SafeAreaView>
     
   ) 

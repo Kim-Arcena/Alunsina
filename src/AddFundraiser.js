@@ -3,7 +3,6 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
-import { LinearGradient } from 'expo-linear-gradient';
 import * as ImagePicker from 'expo-image-picker';
 
 
@@ -69,8 +68,6 @@ const AddFundraiser = () => {
  
     return (
         <SafeAreaView style={styles.container}>
-        <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
-
         <Text style={styles.title}>Create Fundraiser</Text>
             <View style={styles.inputView} >
             <Text style={styles.inputTextLabel}>Upload Fundraising Banner</Text>
@@ -120,7 +117,6 @@ const AddFundraiser = () => {
                 targetAmount)}>
             <Text style={styles.loginText}>Add Fundraiser</Text>
         </TouchableOpacity>
-        </LinearGradient>
     </SafeAreaView>
   )
 }

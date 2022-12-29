@@ -1,9 +1,8 @@
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image} from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image, SafeAreaView} from 'react-native'
 import Checkbox from 'expo-checkbox';
 import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
-import { LinearGradient } from 'expo-linear-gradient';
 
 const Registration = () => {
     const navigation = useNavigation();
@@ -44,8 +43,7 @@ const Registration = () => {
         })
     }
     return (
-        <View style={styles.container}>
-            <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
+        <SafeAreaView style={styles.container}>
             <Text style={styles.title}>Create Volunteer Account</Text>
                 <View style={styles.inputView} >
                     <View style={styles.fullName}>
@@ -111,9 +109,7 @@ const Registration = () => {
             <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                 <Text style={styles.bottomText}>Have an account? <Text style={styles.bottomTextSpan}>Login</Text></Text>
             </TouchableOpacity>
-        </LinearGradient>
-        
-        </View>
+        </SafeAreaView>
     )
     
 }

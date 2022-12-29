@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient'
@@ -10,13 +10,11 @@ const SplashScreen = () => {
         navigation.navigate('Login')
     }, 3000)
   return (
-    <View style={styles.container}>
-      <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
+    <SafeAreaView style={styles.container}>
       <Image source={require('../assets/splash3.png')} style={styles.splashImage}/>
       <Text style={styles.title}>Fast and Safe EVAW-Dedicated Fundraising App</Text>
       <Text style={styles.credits}>ⓒ 2022 Alunsina. All Rights Reserved.</Text>
-      </LinearGradient>
-      </View>
+    </SafeAreaView>
   )
 }
 

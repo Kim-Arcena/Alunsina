@@ -5,7 +5,6 @@
  import { useNavigation } from '@react-navigation/native';
  import { firebase } from "../config";
  import { Platform, StatusBar } from "react-native";
- import { LinearGradient } from 'expo-linear-gradient';
  
  const Login = () => {
     const navigation = useNavigation();
@@ -25,7 +24,6 @@
 
    return (
      <SafeAreaView style={styles.container}>
-        <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
         <Image source={require('../assets/splash3.png')} style={styles.icon} />
          <Text style={styles.title}>Providing Solutions in Stopping VAWC</Text>
         <View style={styles.inputView} >
@@ -57,7 +55,6 @@
         <TouchableOpacity onPress={() => navigation.navigate('Registration')}>
             <Text style={styles.bottomText}>Don't have an account? <Text style={styles.bottomTextSpan}>Sign Up</Text></Text>
         </TouchableOpacity>
-        </LinearGradient>
     </SafeAreaView>
    )
  }

@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { RadioButton } from 'react-native-paper';
-import { LinearGradient } from 'expo-linear-gradient';
 
 const CheckoutScreen = () => {
   const [fundraisingDetails, setFundraisersDetails] = useState([]);
@@ -30,7 +29,6 @@ const CheckoutScreen = () => {
   const [checked, setChecked] = React.useState('first');
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
       <Text style={styles.donateName}>Donate</Text>
       <Text style={styles.donateForName}>Donated for</Text>
         <View style={styles.articleBox}>
@@ -74,7 +72,6 @@ const CheckoutScreen = () => {
                 autoCorrect={false}    
             />
         <Text style={styles.paymentMethodText}>Payment Method</Text>
-
         <View style={styles.paymentMethod}>
           <View style={styles.paymentMethodRdbtn}>
             <RadioButton
@@ -110,7 +107,6 @@ const CheckoutScreen = () => {
         <TouchableOpacity style={styles.paymentBtn}>
             <Text style={styles.loginText}>Pay & Confirm</Text>
         </TouchableOpacity>
-      </LinearGradient>
     </SafeAreaView>
   )
 }
