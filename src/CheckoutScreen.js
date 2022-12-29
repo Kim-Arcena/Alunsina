@@ -30,10 +30,11 @@ const CheckoutScreen = () => {
   const [checked, setChecked] = React.useState('first');
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.donateName}>Donateed</Text>
+      <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
+      <Text style={styles.donateName}>Donate</Text>
       <Text style={styles.donateForName}>Donated for</Text>
         <View style={styles.articleBox}>
-          <Image source={require('../assets/ufvaw.jpeg')} style={styles.articleBanner} />
+          <Image source={require('../assets/16Days-Action-banner.png')} style={styles.articleBanner} />
           <View style={styles.articleTexts}>
               <View style={styles.smallDetails}>
                 <Text style={styles.articleTitle}>{fundraiserTitle}</Text>
@@ -109,6 +110,7 @@ const CheckoutScreen = () => {
         <TouchableOpacity style={styles.paymentBtn}>
             <Text style={styles.loginText}>Pay & Confirm</Text>
         </TouchableOpacity>
+      </LinearGradient>
     </SafeAreaView>
   )
 }
@@ -129,7 +131,7 @@ const styles = StyleSheet.create({
   donateName: {
     fontSize: 19,
     fontWeight: 'bold',
-    marginTop: 20,
+    marginTop: 40,
     marginBottom: 10,
   },
   donateForName: {
@@ -230,7 +232,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    position: 'absolute',
-    bottom: 60,
+    // position: 'absolute',
+    marginTop: 80,
+    fontweight: 'bold',
+  },
+  gradient: {
+    width: '100%',
+    flex: 1,
+    alignItems: 'center',
+    fontWeight: 'bold',
+    fontSize: 26,
+  },
+  loginText: {
+    fontWeight: '600',
+    fontSize: 13,
   },
 })
