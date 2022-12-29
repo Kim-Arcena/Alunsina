@@ -1,18 +1,12 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView, Dimensions } from 'react-native'
 import React, {useState, useEffect} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useNavigation } from '@react-navigation/native';
-import { firebase } from "../config";
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { ProgressBar, MD3Colors } from 'react-native-paper';
-import { LinearGradient } from 'expo-linear-gradient';
-
+import { colors } from '../components/color';
 
 const SpecificArticle = () => {
   const screenWidth = Dimensions.get('window').width;
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={['#ffffff','#FBB878']} style={styles.gradient}>
       <ScrollView scrollEventThrottle={16} style={styles.articleScrollView}>
       <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: screenWidth }}>
       <View style={styles.articleHeader}>
@@ -70,7 +64,6 @@ const SpecificArticle = () => {
       </View>
       </ScrollView>
       </ScrollView>
-      </LinearGradient>
     </SafeAreaView>
   )
 }
@@ -84,18 +77,11 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: '#fff',
       paddingTop: 40,
+      backgroundColor: colors.white,
     },
     articleTitle: {
       fontSize: 20,
       fontWeight: 'bold',
-    },
-    gradient: {
-      width: '100%',
-      flex: 1,
-      alignItems: 'center',
-      fontWeight: 'bold',
-      fontSize: 26,
-      justifyContent: 'center',
     },
     articleAuthor: {
       fontSize: 14,
@@ -155,7 +141,7 @@ const styles = StyleSheet.create({
     },
     articleBox: {
       flexDirection: 'row',
-      backgroundColor: '#fbf9f7',
+      backgroundColor: colors.lightgrey,
       borderRadius: 20,
       height: 100,
       width: '100%',
@@ -167,6 +153,7 @@ const styles = StyleSheet.create({
     },
     smallDetails: {
       flexDirection: 'row',
+      justifyContent: 'space-between',
     },
     author: {
       fontSize: 12,
@@ -180,5 +167,6 @@ const styles = StyleSheet.create({
       borderColor: '#C7A896',
       width: 320,
       alignSelf: 'center',
+      marginTop: -8,
     },
 })

@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { ProgressBar, MD3Colors } from 'react-native-paper';
+import { colors } from '../components/color';
 
 
 
@@ -72,7 +73,7 @@ const Dashboard = () => {
             <Text style={styles.OrganizationName}>{fundraiserHandler}</Text>
             <Text style={styles.fundraiserTitle}>{fundraiserTitle}</Text>
             <Text style={styles.donationDescription}>{fundraiserDescription}</Text>
-            <ProgressBar progress={0.33} color={MD3Colors.error50} />
+            <ProgressBar progress={0.33} color={colors.darkorange} />
             <Text style={styles.moneyRaised}><Text style={styles.targetAmount}>P5000 raised </Text>of P{fundraiserTargetAmount}</Text>
             <TouchableOpacity style={styles.donateBtn} onPress={() => navigation.navigate('CheckoutScreen')}>
               <Text style={styles.donateText}>Donate</Text>
@@ -131,11 +132,13 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
+      backgroundColor: colors.white,
     },
     box: {
       marginTop: 20,
       height: 70,
-      backgroundColor: '#F2CBBB',
+      backgroundColor: colors.white,
+      elevation: 7,
       width: '80%',
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -146,7 +149,7 @@ const styles = StyleSheet.create({
       marginBottom: 10,
     },
     greetings: {
-        color: '#aa4f15',
+        color: '#E54615',
         fontSize: 20,
         fontWeight: 'bold',
     },
@@ -184,10 +187,11 @@ const styles = StyleSheet.create({
       flex: 1,  
       marginVertical: 20,
       width: '80%',
-      backgroundColor: '#fbf9f7',
+      backgroundColor: colors.white,
       flexDirection: 'column',
       borderRadius: 20,
-      padding: 15,
+      padding: 20,
+      elevation: 7,
       // height: 450,
     },
     imageBanner: {
@@ -203,7 +207,7 @@ const styles = StyleSheet.create({
     fundraiserTitle: {
       fontSize: 16,
       fontWeight: 'bold',
-      color: '#d46823',
+      color: colors.darkorange,
       marginTop: 8,
     },
     donationDescription: {
@@ -220,8 +224,8 @@ const styles = StyleSheet.create({
     },      
     donateBtn: {
       height: 40,
-      width: 100,
-      backgroundColor: '#FA9F78',
+      width: 110,
+      backgroundColor: colors.lightorange,
       borderRadius: 25,
       justifyContent: 'center',
       alignItems: 'center',
@@ -230,8 +234,8 @@ const styles = StyleSheet.create({
     },
     donateText: {
       fontWeight: '600',
-      fontSize: 13,
-      color: '#000',
+      fontSize: 14,
+      color: colors.white,
     },
     line:{
       borderWidth: 0.5,
@@ -261,7 +265,7 @@ const styles = StyleSheet.create({
     },
     articleBox: {
       flexDirection: 'row',
-      backgroundColor: '#fbf9f7',
+      backgroundColor: colors.lightgrey,
       borderRadius: 20,
       height: 100,
       width: '100%',
@@ -283,7 +287,7 @@ const styles = StyleSheet.create({
     },
     plusCircle: {
       fontSize: 50,
-      color: '#FA9F78',
+      color: colors.lightorange,
       position: 'absolute',
       left:110,
       bottom: 50,

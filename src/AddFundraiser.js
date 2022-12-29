@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
 import * as ImagePicker from 'expo-image-picker';
-
+import { colors } from '../components/color';
 
 const AddFundraiser = () => {
     const navigation = useNavigation();
@@ -72,7 +72,7 @@ const AddFundraiser = () => {
             <View style={styles.inputView} >
             <Text style={styles.inputTextLabel}>Upload Fundraising Banner</Text>
             <TouchableOpacity style={styles.uploadImage} onPress={pickImage}>
-                <Text style={styles.loginText}>Upload Image</Text>
+                <Text style={styles.uploadText}>Upload Image</Text>
             </TouchableOpacity>
             <Text style={styles.inputTextLabel}>Organizaton Name</Text>
             <TextInput 
@@ -131,7 +131,6 @@ const styles = StyleSheet.create({
         fontSize: 26,
         justifyContent: 'center',
         backgroundColor: '#fff',
-        paddingTop: 40,
     },
     title: {
         fontSize: 20,
@@ -155,16 +154,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     textInput: {
-        height: 50,
+        height: 55,
         width: 320,
         marginVertical: 6,
-        borderWidth: 1,
+        borderWidth: 2,
         padding: 10,
         paddingLeft: 20,
         fontSize: 16,
         borderRadius: 20,
-        borderColor: '#fef1e5',
-        backgroundColor: '#fef1e5',
+        borderColor: colors.grey,
         alignSelf: 'center',
     },
     halfName: {
@@ -186,13 +184,18 @@ const styles = StyleSheet.create({
     addFundraiserBtn: {
         height: 44,
         width: 290,
-        backgroundColor: '#F27153',
+        backgroundColor: colors.lightorange,
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 20,
     },
     loginText: {
+        fontWeight: '600',
+        fontSize: 14,
+        color: '#fff',
+    },
+    uploadText: {
         fontWeight: '600',
         fontSize: 13,
     },
@@ -230,13 +233,12 @@ const styles = StyleSheet.create({
         height: 100,
         width: 320,
         marginVertical: 6,
-        borderWidth: 1,
+        borderWidth: 2,
         paddingHorizontal: 20,
         paddingTop: 10,
         fontSize: 16,
         borderRadius: 20,
-        borderColor: '#fef1e5',
-        backgroundColor: '#fef1e5',
+        borderColor: colors.grey,
         alignContent: 'flex-start',
         textAlignVertical: 'top',
         alignSelf: 'center',

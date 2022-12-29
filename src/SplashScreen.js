@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
-import { LinearGradient } from 'expo-linear-gradient'
 
 const SplashScreen = () => {
     const navigation = useNavigation();
@@ -27,6 +26,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         fontSize: 26,
         justifyContent: 'center',
+        backgroundColor: '#fff',
     },
     gradient: {
        height: '100%',

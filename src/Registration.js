@@ -3,6 +3,7 @@ import Checkbox from 'expo-checkbox';
 import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
+import { colors } from '../components/color';
 
 const Registration = () => {
     const navigation = useNavigation();
@@ -46,29 +47,22 @@ const Registration = () => {
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>Create Volunteer Account</Text>
                 <View style={styles.inputView} >
-                    <View style={styles.fullName}>
-                        <View style={styles.firstNameFrame}>
-                            <Text style={styles.inputTextLabel}>First Name</Text>
-                            <TextInput 
-                                style={styles.halfName}
-                                placeholder="Juan"
-                                onChangeText={firstName => setFirstName(firstName)}
-                                autoCapitalize="none"
-                                autoCorrect={false}    
-                            />
-                        </View>
-                        <View style={styles.firstNameFrame}>
-                            <Text style={styles.inputTextLabel}>Last Name</Text>
-                            <TextInput 
-                                style={styles.halfName}
-                                placeholder="Dela Cruz"
-                                onChangeText={lastName => setLastName(lastName)}
-                                autoCapitalize="none"
-                                autoCorrect={false}    
-                            />
-                        </View>
-                </View>
-                
+                <Text style={styles.inputTextLabel}>First Name</Text>
+                    <TextInput 
+                        style={styles.textInput}
+                        placeholder="Juan"
+                        onChangeText={firstName => setFirstName(firstName)}
+                        autoCapitalize="none"
+                        autoCorrect={false}    
+                    />
+                <Text style={styles.inputTextLabel}>Last Name</Text>
+                    <TextInput 
+                        style={styles.textInput}
+                        placeholder="Dela Cruz"
+                        onChangeText={lastName => setLastName(lastName)}
+                        autoCapitalize="none"
+                        autoCorrect={false}    
+                />
                 <Text style={styles.inputTextLabel}>Organizaton Name</Text>
                 <TextInput 
                     style={styles.textInput}
@@ -123,12 +117,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 26,
         backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginTop: 50,
-        marginBottom: 20,
+        margin: 25,
     },
     gradient: {
         width: '100%',
@@ -143,23 +138,23 @@ const styles = StyleSheet.create({
         marginLeft: 17,
         marginTop: 7,
         fontWeight: 'bold',
-        marginBottom: -10,
+        marginBottom: -8,
     },
     inputView: {
-        marginTop: 30,
+        marginTop: 10,
         width: "80%",
     },
     textInput: {
-        height: 50,
-        width: 292,
-        margin: 12,
-        borderWidth: 1,
+        height: 55,
+        width: 300,
+        marginVertical: 12,
+        borderWidth: 2,
         padding: 10,
-        paddingLeft: 20,
+        paddingLeft: 18,
         fontSize: 16,
         borderRadius: 20,
-        borderColor: '#fef1e5',
-        backgroundColor: '#fef1e5',
+        borderColor: colors.grey,
+        alignSelf: 'center',
     },
     halfName: {
         height: 50,
@@ -181,23 +176,24 @@ const styles = StyleSheet.create({
     registrationBtn: {
         height: 44,
         width: 290,
-        backgroundColor: '#f27153',
+        backgroundColor: colors.lightorange,
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 85,
+        marginTop: 30,
     },
     loginText: {
         fontWeight: '600',
-        fontSize: 13,
+        fontSize: 15,
+        color: '#fff',
     },
     bottomText: {
         marginTop: 10,
         fontSize: 15,
-        fontWeight: '600',
         color: '#1D1D1D',
     },
     bottomTextSpan: {
+        fontWeight: '600',
         color: '#D46823',
     },
     addForm: {

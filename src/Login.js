@@ -4,7 +4,7 @@
  import { SafeAreaView } from 'react-native-safe-area-context'
  import { useNavigation } from '@react-navigation/native';
  import { firebase } from "../config";
- import { Platform, StatusBar } from "react-native";
+ import { colors } from '../components/color';
  
  const Login = () => {
     const navigation = useNavigation();
@@ -95,21 +95,21 @@ const styles = StyleSheet.create({
         width: "80%",
     },
     textInput: {
-        height: 50,
+        height: 55,
         width: 300,
         marginVertical: 12,
-        borderWidth: 1,
+        borderWidth: 2,
         padding: 10,
+        paddingLeft: 18,
         fontSize: 16,
         borderRadius: 20,
-        borderColor: '#fef1e5',
+        borderColor: colors.grey,
         alignSelf: 'center',
-        backgroundColor: '#fef1e5',
     },
     loginBtn: {
         height: 44,
         width: 290,
-        backgroundColor: '#F27153',
+        backgroundColor: colors.lightorange,
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
@@ -117,16 +117,17 @@ const styles = StyleSheet.create({
     },
     loginText: {
         fontWeight: '600',
-        fontSize: 13,
+        fontSize: 15,
+        color: '#fff',
     },
     bottomText: {
         marginTop: 10,
         fontSize: 15,
-        fontWeight: '600',
         color: '#1D1D1D',
     },
     bottomTextSpan: {
         color: '#D46823',
+        fontWeight: 'bold',
     },
     addForm: {
         flexDirection: 'row',

@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../config";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { colors } from '../components/color';
 import { RadioButton } from 'react-native-paper';
 
 const CheckoutScreen = () => {
@@ -131,14 +131,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   donateForName: {
-    fontSize: 13,
+    fontSize: 15,
     alignSelf: 'flex-start',
     marginLeft: 50,
     fontWeight: '500',
   },
   articleBox: {
     flexDirection: 'row',
-    backgroundColor: '#fbf9f7',
+    backgroundColor: colors.lightgrey,
     borderRadius: 20,
     height: 100,
     width: '80%',
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   amountView: {
-    width: '80%',
+    width: '100%',
     alignSelf: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -171,11 +171,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
   },
   amountBox: {
-    backgroundColor: '#fbf9f7',
-    borderRadius: 10,
+    backgroundColor: colors.lighterorange,
+    borderRadius: 15,
     marginVertical: 10,
-    width: 100,
-    height: 35,
+    width: 150,
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -191,16 +191,15 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   textInput: {
-    height: 50,
-    width: '80%',
-    marginVertical: 6,
-    borderWidth: 1,
+    height: 55,
+    width: 320,
+    marginTop: 10,
+    borderWidth: 2,
     padding: 10,
     paddingLeft: 20,
-    fontSize: 15,
+    fontSize: 16,
     borderRadius: 20,
-    borderColor: '#d1a585',
-    backgroundColor: '#f9f3ed',
+    borderColor: colors.grey,
     alignSelf: 'center',
   },
   paymentMethodText: {
@@ -208,7 +207,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginLeft: 50,
     fontWeight: '500',
-    marginTop: 20,
+    marginTop: 15,
   },
   paymentMethod: {
     flexDirection: 'column',
@@ -221,16 +220,17 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   paymentBtn: {
-    height: 40,
-    width: 150,
-    backgroundColor: '#FA9F78',
-    borderRadius: 20,
+    height: 44,
+    width: 290,
+    backgroundColor: colors.lightorange,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
-    // position: 'absolute',
-    marginTop: 80,
-    fontweight: 'bold',
+    marginTop: 50,
+  },
+  amountBtn: {
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   gradient: {
     width: '100%',
@@ -241,6 +241,7 @@ const styles = StyleSheet.create({
   },
   loginText: {
     fontWeight: '600',
-    fontSize: 13,
+    fontSize: 14,
+    color: '#fff',
   },
 })
